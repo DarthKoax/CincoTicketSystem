@@ -35,16 +35,47 @@ public class Ticket {
         description = scanner.nextLine();
 
         System.out.println("Severity can only have values of low, medium or high");
-        System.out.print("Severity: ");
-        severity = scanner.nextLine();
 
-        System.out.println("DO you want to submit the form Y for YES and N for NO  ");
-        submitTicket = scanner.nextLine();
+        severity = getSeverity();
+
+        System.out.println("DO you want to submit the form? ");
+        submitTicket = getSubmit();
         if (submitTicket.equalsIgnoreCase("Y")) {
 
             System.out.println("Ticket submitted");
+        } else {
+            System.out.println("Ticket will not be submitted");
         }
 
+    }
+
+
+    /**
+     * Submit can only be Y or N
+     * @return
+     */
+    public String getSubmit() {
+        String submitAnswer = null;
+        do {
+            System.out.println("Enter Y for YES or N for NO");
+            submitAnswer = scanner.nextLine();
+        } while (!submitAnswer.equalsIgnoreCase("Y")&&!submitAnswer.equalsIgnoreCase("N"));
+        return submitAnswer;
+    }
+
+
+    /**
+     * Severity can only have a status of low, medium or high
+     * @return
+     */
+    public String getSeverity() {
+      String s = null;
+      do {
+          System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
+          System.out.print("Severity: ");
+          s = scanner.nextLine();
+      } while (!s.equalsIgnoreCase("L")&&!s.equalsIgnoreCase("M")&&!s.equalsIgnoreCase("H"));
+      return s;
     }
 
 }
