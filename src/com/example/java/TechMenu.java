@@ -3,6 +3,7 @@ package com.example.java;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class TechMenu {
     Scanner scanner = new Scanner(System.in);
@@ -14,12 +15,11 @@ public class TechMenu {
 
     public int loginOption;
 
-    List<String> techMenuList = Arrays.asList(LINE1, LINE3, LINE2, LINE3, LINE4,LINE3, LINE5, LINE3, LINE3,LINE1,LINE3);
+
+    Stream<String> techMenuStream = Stream.of(new String[]{LINE1, LINE3, LINE2, LINE3, LINE4,LINE3, LINE5, LINE3, LINE3,LINE1,LINE3});
 
     public void printTechMenu() {
-        for(Object element : techMenuList) {
-            System.out.println(element);
-        }
+        techMenuStream.forEach(p -> System.out.println(p));
         System.out.println("Enter number for Service desk ");
         loginOption = scanner.nextInt();
         scanner.nextLine();
