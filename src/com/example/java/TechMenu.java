@@ -31,7 +31,6 @@ public class TechMenu {
         String level = null;
         do {
             System.out.println("You can only enter option '1' , '2' ,'3'");
-            System.out.print("Severity: ");
             level = scanner.nextLine();
 
         } while (!level.equals("1")&&!level.equals("2")&&!level.equals("3"));
