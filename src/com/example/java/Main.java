@@ -17,7 +17,7 @@ public class Main {
         String LINE2 = "|          LOGIN CINCO  TICKET ISSUING SYSTEM          |";
         String LINE3 = "|                                                      |";
         String LINE4 = "|               1.     STAFF USER                      |";
-        String LINE5 = "|               2.   TECHNICIAN USER                   |";
+        String LINE5 = "|               2.     TECHNICIAN USER                 |";
         String LINE6 = "";
         String LINE7 = "|               3.     EXIT SYSTEM                     |";
 

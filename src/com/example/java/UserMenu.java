@@ -12,7 +12,7 @@ public class UserMenu {
     public static final String LINE3 = "|                  GENERAL USER                 |";
     public static final String LINE4 = "|                                               |";
     public static final String LINE5 = "|           1.    SUBMIT NEW TICKET             |";
-    public static final String LINE6 = "|           2. OPEN / ARCHIVED TICKETS          |";
+    public static final String LINE6 = "|           2.    OPEN / ARCHIVED TICKETS       |";
     public static final String LINE7 = "";
     public static final String LINE8 = "|           3.      EXIT SYSTEM                 |";
 
