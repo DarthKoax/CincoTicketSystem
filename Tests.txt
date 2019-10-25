@@ -30,3 +30,6 @@ Technicians Menu:
 
    Selecting 3: 
       Exits program: ✔ (should this logout? return to main login)
+
+Unit Tests:
+   All ticket tests passed: ✖
