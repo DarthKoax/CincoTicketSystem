@@ -51,7 +51,7 @@ public class Ticket {
 
         System.out.println("Severity can only have values of low, medium or high");
 
-        severity = getSeverity();
+        severity = getSeverityUser();
         if (severity.equalsIgnoreCase("L")){
             severity = "LOW";
         } else if (severity.equalsIgnoreCase("M")){
@@ -90,7 +90,7 @@ public class Ticket {
      * Severity can only have a status of low, medium or high
      * @return
      */
-    public String getSeverity() {
+    public String getSeverityUser() {
       String s = null;
       do {
           System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
@@ -119,5 +119,41 @@ public class Ticket {
         objectString += "Severity Level: "+ this.severity +" ";
         objectString += "Status: "+ this.status;
         return objectString;
+    }
+    
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getStaffNumber() {
+        return staffNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSubmitTicket() {
+        return submitTicket;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getDescription() {
+        return  description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getSeverity() {
+        return severity;
     }
 }

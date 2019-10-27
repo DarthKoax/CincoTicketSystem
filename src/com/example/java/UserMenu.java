@@ -22,7 +22,7 @@ public class UserMenu {
     public static final String LINE4 = "|                                               |";
     public static final String LINE5 = "|           1.    SUBMIT NEW TICKET             |";
     public static final String LINE7 = "";
-    public static final String LINE8 = "|           2.      EXIT SYSTEM                 |";
+    public static final String LINE8 = "|           3.    EXIT SYSTEM                   |";
 
     public String selection;
 
