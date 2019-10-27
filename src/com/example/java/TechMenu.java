@@ -57,7 +57,6 @@ public class TechMenu {
         switch (loginOption) {
         case "1":
             techLevel1Stream.forEach(p -> System.out.println(p));
-           // System.out.println("THE FOLLOWING ARE LEVEL 1 SERVICE DESK TICKETS");
             for (Ticket t: tickets) {
                 if (t.getSeverity().equals("L")||t.getSeverity().equals("M")){
                     System.out.println(t);
@@ -65,7 +64,7 @@ public class TechMenu {
             }
             break;
         case "2":
-            System.out.println("THE FOLLOWING ARE LEVEL 2 SERVICE DESK TICKETS");
+            techLevel2Stream.forEach(p -> System.out.println(p));
             for (Ticket t: tickets) {
                 if (t.getSeverity().equals("H")){
                     System.out.println(t);
