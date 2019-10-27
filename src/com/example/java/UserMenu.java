@@ -12,14 +12,13 @@ public class UserMenu {
     public static final String LINE3 = "|                  GENERAL USER                 |";
     public static final String LINE4 = "|                                               |";
     public static final String LINE5 = "|           1.    SUBMIT NEW TICKET             |";
-    public static final String LINE6 = "|           2.    OPEN / ARCHIVED TICKETS       |";
     public static final String LINE7 = "";
-    public static final String LINE8 = "|           3.      EXIT SYSTEM                 |";
+    public static final String LINE8 = "|           2.      EXIT SYSTEM                 |";
 
     public String selection;
 
     Stream<String> userMenuStream = Stream
-            .of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE6, LINE8, LINE4, LINE1 });
+            .of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
 
     public void printUserMenu() {
         userMenuStream.forEach(p -> System.out.println(p));
