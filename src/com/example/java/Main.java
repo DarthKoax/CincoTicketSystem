@@ -1,5 +1,6 @@
 package com.example.java;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -8,6 +9,10 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
+
+        // Load Ticket Data on startup
+        DataReadWrite dataHandler = new DataReadWrite();
+        ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
 
         /**
          * Will prompt user to enter information to create IT Issue ticket

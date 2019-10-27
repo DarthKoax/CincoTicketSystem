@@ -11,8 +11,22 @@ public class Ticket {
     public String contact;
     public String description;
     public String severity;
+    public String status;
 
     Scanner scanner = new Scanner(System.in);
+
+    public Ticket(){}
+    
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity){
+        status = "open";
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.staffNumber = staffNumber;
+        this.email = email;
+        this.contact = contact;
+        this.description = description;
+        this.severity = severity;
+    }
 
     public void getTicketInput() {
         System.out.println("Enter the following information to create an IT Issue Ticket");
