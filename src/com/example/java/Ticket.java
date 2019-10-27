@@ -28,7 +28,8 @@ public class Ticket {
         this.severity = severity;
     }
 
-    public void getTicketInput() {
+    public boolean getTicketInput() {
+        boolean submission = false;
         System.out.println("Enter the following information to create an IT Issue Ticket");
         System.out.print("First Name:  ");
         firstName = scanner.nextLine();
@@ -55,12 +56,12 @@ public class Ticket {
         System.out.println("DO you want to submit the form? ");
         submitTicket = getSubmit();
         if (submitTicket.equalsIgnoreCase("Y")) {
-
+            submission = true;
             System.out.println("Ticket submitted");
         } else {
             System.out.println("Ticket will not be submitted");
         }
-
+        return submission;
     }
 
 
@@ -94,8 +95,8 @@ public class Ticket {
 
     public String toString(){
         String objectString = "";
-        objectString += this.firstName +";"+ this.lastName +";"+ this.staffNumber +";"+ this.email;
-        objectString += this.contact +";"+ this.description +";"+ this.severity +";"+ this.status;
+        objectString += this.firstName +"/t"+ this.lastName +"/t"+ this.staffNumber +"/t"+ this.email+"/t";
+        objectString += this.contact +"/t"+ this.description +"/t"+ this.severity +"/t"+ this.status+"/n";
 
         return objectString;
     }

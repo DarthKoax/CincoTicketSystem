@@ -25,7 +25,7 @@ public class DataReadWrite{
         System.out.println("Loading Ticket Data...");
 
         try{
-            Scanner scanner = new Scanner(file).useDelimiter(";");
+            Scanner scanner = new Scanner(file).useDelimiter("\t");
 
             while (scanner.hasNextLine()){
                 String firstName = scanner.next();
@@ -70,10 +70,11 @@ public class DataReadWrite{
             FileWriter fileWriter = new FileWriter("Tickets.dat"); 
               
             for (Ticket ticket:tickets){
+                System.out.println("About to Write a ticket to file"+ticket.toString());
                 fileWriter.write(ticket.toString());
-                //System.out.println("gonna save a ticket");
-            }
-            //tickets.forEach(ticket -> fileWriter.write(ticket.toString()));    
+                fileWriter.flush();                
+            }    
+            fileWriter.close();
             System.out.println("Ticket data Saved.");
             
         } catch (IOException e) {

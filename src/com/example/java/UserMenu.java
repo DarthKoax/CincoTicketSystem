@@ -5,7 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import javax.activation.DataHandler;
+
 public class UserMenu {
+
+     // Load Ticket Data on startup
+     DataReadWrite dataHandler = new DataReadWrite();
+     ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
+
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
@@ -40,7 +47,11 @@ public class UserMenu {
         switch (selection) {
         case "1":
             Ticket ticket = new Ticket();
-            ticket.getTicketInput();
+            if (ticket.getTicketInput()== false){}
+            else {
+                tickets.add(ticket);
+                dataHandler.writeAllTickets(tickets);
+            }
             break;
         case "2":
             System.out.println("Not yet implemented");
