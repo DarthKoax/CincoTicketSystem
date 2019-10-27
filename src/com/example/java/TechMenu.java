@@ -10,9 +10,10 @@ public class TechMenu {
     Scanner scanner = new Scanner(System.in);
 
     public Ticket ticket;
-    public DataReadWrite drw;
-    DataReadWrite dataHandler = new DataReadWrite();
-    ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
+    // Load Ticket Data on startup
+    SerializeList cereal = new SerializeList();
+    //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+    ArrayList<Ticket> tickets = cereal.readFile();
 
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
@@ -58,7 +59,7 @@ public class TechMenu {
         case "1":
             techLevel1Stream.forEach(p -> System.out.println(p));
             for (Ticket t: tickets) {
-                if (t.getSeverity().equals("L")||t.getSeverity().equals("M")){
+                if (t.getSeverity().equals("LOW")||t.getSeverity().equals("MEDIUM")){
                     System.out.println(t);
                 }
             }
@@ -66,7 +67,7 @@ public class TechMenu {
         case "2":
             techLevel2Stream.forEach(p -> System.out.println(p));
             for (Ticket t: tickets) {
-                if (t.getSeverity().equals("H")){
+                if (t.getSeverity().equals("HIGH")){
                     System.out.println(t);
                 }
 

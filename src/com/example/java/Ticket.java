@@ -1,8 +1,9 @@
 package com.example.java;
 
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Ticket {
+public class Ticket implements Serializable {
     public String firstName;
     public String lastName;
     public String staffNumber;
@@ -13,7 +14,7 @@ public class Ticket {
     public String severity;
     public String status;
 
-    Scanner scanner = new Scanner(System.in);
+    transient Scanner scanner = new Scanner(System.in);
 
     public Ticket(){status = "open";}
     
@@ -100,6 +101,7 @@ public class Ticket {
       return s;
     }
 
+    /*
     public String toString(boolean nothing){
         String objectString = "";
         objectString += this.firstName +"\t"+ this.lastName +"\t"+ this.staffNumber +"\t"+ this.email+"\t";
@@ -107,17 +109,18 @@ public class Ticket {
 
         return objectString;
     }
+    */
 
     public String toString(){
-        String objectString = "";
-        objectString += "First name: " + this.firstName +" ";
-        objectString += "Last name: " + this.lastName +" "; 
-        objectString += "Staff number: "+ this.staffNumber +" ";
-        objectString += "Email: "+ this.email+" ";
-        objectString += "Contact: "+ this.contact+" ";
-        objectString += "Description: "+ this.description +" ";
-        objectString += "Severity Level: "+ this.severity +" ";
-        objectString += "Status: "+ this.status;
+        String objectString = "Ticket=> [";
+        objectString += "First name: " + this.firstName +", ";
+        objectString += "Last name: " + this.lastName +", "; 
+        objectString += "Staff number: "+ this.staffNumber +", ";
+        objectString += "Email: "+ this.email+", ";
+        objectString += "Contact: "+ this.contact+", ";
+        objectString += "Description: "+ this.description +", ";
+        objectString += "Severity Level: "+ this.severity +", ";
+        objectString += "Status: "+ this.status+"]";
         return objectString;
     }
     

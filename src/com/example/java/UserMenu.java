@@ -6,14 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-import javax.activation.DataHandler;
-
 public class UserMenu {
 
      // Load Ticket Data on startup
-    DataReadWrite dataHandler = new DataReadWrite();
+    SerializeList cereal = new SerializeList();
     //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-    ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
+    ArrayList<Ticket> tickets = cereal.readFile();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
@@ -52,7 +50,7 @@ public class UserMenu {
             if (ticket.getTicketInput()== false){}
             else {
                 tickets.add(ticket);
-                dataHandler.writeAllTickets(tickets);
+                cereal.writeFile(tickets);
             }
             break;
         case "2":
