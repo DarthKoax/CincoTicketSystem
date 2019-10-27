@@ -38,13 +38,12 @@ public class DataReadWrite{
                 String status = scanner.next();
 
                 tickets.add(new Ticket(firstName, lastName, staffNumber, email, contact, description, severity, status));
-                scanner.nextLine();
             }
             System.out.println("Ticket data Loaded.");
             
         } catch (FileNotFoundException e){
             System.out.println("Ticket data not Found.");
-        }
+        } 
         
         return tickets;
     }
@@ -71,7 +70,7 @@ public class DataReadWrite{
               
             for (Ticket ticket:tickets){
                 System.out.println("About to Write a ticket to file: "+ticket.toString());
-                fileWriter.write(ticket.toString());
+                fileWriter.write(ticket.toString(true));
                 fileWriter.flush();                
             }    
             fileWriter.close();

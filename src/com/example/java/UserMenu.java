@@ -12,7 +12,8 @@ public class UserMenu {
 
      // Load Ticket Data on startup
     DataReadWrite dataHandler = new DataReadWrite();
-    ArrayList<Ticket> tickets = new ArrayList<Ticket>();//dataHandler.readStoredTicketData();
+    //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+    ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
@@ -55,6 +56,10 @@ public class UserMenu {
             }
             break;
         case "2":
+            //print each Ticket in Tickets: DELETE THIS
+            for(Ticket t: tickets){
+                System.out.println(t);
+            }
             System.out.println("Not yet implemented");
             break;
         case "3":
