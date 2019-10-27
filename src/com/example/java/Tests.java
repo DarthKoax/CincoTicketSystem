@@ -53,35 +53,35 @@ public class Tests {
       return ticket;
    }
    private void testTicketFirstname(Ticket ticket){
-      assert ticket.firstName = firstName;
+      assert (ticket.firstName = firstName) != null;
    }
 
    private void testTicketLastname(Ticket ticket){
-      assert ticket.lastName = lastName;
+      assert (ticket.lastName = lastName) != null;
    }
 
    private void testTicketStaffnumber(Ticket ticket){
-      assert ticket.staffNumber = staffNumber;
+      assert (ticket.staffNumber = staffNumber) != null;
    }
 
    private void testTicketSubmitticket(Ticket ticket){
-      assert ticket.submitTicket = submitTicket;
+      assert (ticket.submitTicket = submitTicket) != null;
    }
 
    private void testTicketEmail(Ticket ticket){
-      assert ticket.email = email;
+      assert (ticket.email = email) != null;
    }
 
    private void testTicketContact(Ticket ticket){
-      assert ticket.contact = contact;
+      assert (ticket.contact = contact) != null;
    }
 
    private void testTicketDescription(Ticket ticket){
-      assert ticket.description = description;
+      assert (ticket.description = description) != null;
    }
 
    private void testTicketSeverity(Ticket ticket){
-      assert ticket.severity = severity;
+      assert (ticket.severity = severity) != null;
    }
 
 }
