@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class UserMenu {
 
-     // Load Ticket Data on startup
+    // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
     //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     ArrayList<Ticket> tickets = cereal.readFile();
@@ -54,10 +54,10 @@ public class UserMenu {
             }
             break;
         case "2":
-            //print each Ticket in Tickets: DELETE THIS
+           /* //DEBUG: print each Ticket in Tickets
             for(Ticket t: tickets){
                 System.out.println(t);
-            }
+            }*/
             System.out.println("Not yet implemented");
             break;
         case "3":

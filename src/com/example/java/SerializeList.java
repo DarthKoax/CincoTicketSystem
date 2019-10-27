@@ -5,8 +5,11 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class SerializeList{
 
@@ -30,15 +33,27 @@ public class SerializeList{
         tickets = new ArrayList<Ticket>();
 
         try{
+            /*
+            File file = new File(fileLocation);
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            */
             FileInputStream fileStream = new FileInputStream(fileLocation);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
             //This is an unchecked cast so will produce a warning suring compile time,
             //However, at no point should a non Ticket object end up in the ArrayList<Ticket>
             tickets = (ArrayList<Ticket>)objectStream.readObject();
+            objectStream.close();
+            fileStream.close();
 
+        } catch (FileNotFoundException e) {
+            System.out.println("Loading Ticket Data...");
+            System.out.println("No Ticket Data Found.");
+        } catch (ClassNotFoundException | InvalidClassException e){
+            //e.printStackTrace();
+            System.out.println("Warning: Data may be Corrupt. Corrupt Data will be overwritten and is not recoverable.");
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         return tickets;
