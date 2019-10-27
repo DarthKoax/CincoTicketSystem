@@ -11,8 +11,8 @@ import javax.activation.DataHandler;
 public class UserMenu {
 
      // Load Ticket Data on startup
-     DataReadWrite dataHandler = new DataReadWrite();
-     ArrayList<Ticket> tickets = new ArrayList<Ticket>();//dataHandler.readStoredTicketData();
+    DataReadWrite dataHandler = new DataReadWrite();
+    ArrayList<Ticket> tickets = new ArrayList<Ticket>();//dataHandler.readStoredTicketData();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";

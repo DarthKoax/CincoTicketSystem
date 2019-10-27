@@ -100,11 +100,24 @@ public class Ticket {
       return s;
     }
 
-    public String toString(){
+    public String toString(boolean nothing){
         String objectString = "";
         objectString += this.firstName +"\t"+ this.lastName +"\t"+ this.staffNumber +"\t"+ this.email+"\t";
-        objectString += this.contact +"\t"+ this.description +"\t"+ this.severity +"\t"+ this.status+"/n";
+        objectString += this.contact +"\t"+ this.description +"\t"+ this.severity +"\t"+ this.status+"\n";
 
+        return objectString;
+    }
+
+    public String toString(){
+        String objectString = "";
+        objectString += "First name: " + this.firstName +" ";
+        objectString += "Last name: " + this.lastName +" "; 
+        objectString += "Staff number: "+ this.staffNumber +" ";
+        objectString += "Email: "+ this.email+" ";
+        objectString += "Contact: "+ this.contact+" ";
+        objectString += "Description: "+ this.description +" ";
+        objectString += "Severity Level: "+ this.severity +" ";
+        objectString += "Status: "+ this.status;
         return objectString;
     }
 }
