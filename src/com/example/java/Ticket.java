@@ -15,10 +15,10 @@ public class Ticket {
 
     Scanner scanner = new Scanner(System.in);
 
-    public Ticket(){}
+    public Ticket(){status = "open";}
     
-    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity){
-        status = "open";
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status){
+        this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
         this.staffNumber = staffNumber;

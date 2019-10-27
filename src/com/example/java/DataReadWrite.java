@@ -36,8 +36,10 @@ public class DataReadWrite{
         
         ArrayList<Ticket> tickets = new ArrayList<Ticket>();
         File file = new File("Tickets.dat");
-        
+        System.out.println("Loading Ticket Data...");
+
         try{
+            //if(file.exists())
             Scanner scanner = new Scanner(file).useDelimiter(";");
 
             while (scanner.hasNextLine()){
@@ -48,13 +50,15 @@ public class DataReadWrite{
                 String contact = scanner.next();
                 String description = scanner.next();
                 String severity = scanner.next();
+                String status = scanner.next();
 
-                tickets.add(new Ticket(firstName, lastName, staffNumber, email, contact, description, severity));
+                tickets.add(new Ticket(firstName, lastName, staffNumber, email, contact, description, severity, status));
                 scanner.nextLine();
             }
+            System.out.println("Ticket data Loaded.");
             
         } catch (FileNotFoundException e){
-            e.printStackTrace();
+            System.out.println("Ticket data not Found.");
         }
         
         return tickets;
@@ -66,6 +70,7 @@ public class DataReadWrite{
 
     public void writeAllTickets(){
         //Writes all tickets to file
+
     }    
 
     //Method to receive a Ticket object, open a file and put the ticket info into the file. 
