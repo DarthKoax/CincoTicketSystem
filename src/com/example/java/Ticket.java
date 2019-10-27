@@ -52,6 +52,13 @@ public class Ticket {
         System.out.println("Severity can only have values of low, medium or high");
 
         severity = getSeverity();
+        if (severity.equalsIgnoreCase("L")){
+            severity = "LOW";
+        } else if (severity.equalsIgnoreCase("M")){
+            severity = "MEDIUM";
+        } else if (severity.equalsIgnoreCase("H")){
+            severity = "HIGH";
+        }
 
         System.out.println("DO you want to submit the form? ");
         submitTicket = getSubmit();
@@ -95,8 +102,8 @@ public class Ticket {
 
     public String toString(){
         String objectString = "";
-        objectString += this.firstName +"/t"+ this.lastName +"/t"+ this.staffNumber +"/t"+ this.email+"/t";
-        objectString += this.contact +"/t"+ this.description +"/t"+ this.severity +"/t"+ this.status+"/n";
+        objectString += this.firstName +"\t"+ this.lastName +"\t"+ this.staffNumber +"\t"+ this.email+"\t";
+        objectString += this.contact +"\t"+ this.description +"\t"+ this.severity +"\t"+ this.status+"/n";
 
         return objectString;
     }

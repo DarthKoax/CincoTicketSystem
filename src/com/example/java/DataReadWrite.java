@@ -70,7 +70,7 @@ public class DataReadWrite{
             FileWriter fileWriter = new FileWriter("Tickets.dat"); 
               
             for (Ticket ticket:tickets){
-                System.out.println("About to Write a ticket to file"+ticket.toString());
+                System.out.println("About to Write a ticket to file: "+ticket.toString());
                 fileWriter.write(ticket.toString());
                 fileWriter.flush();                
             }    

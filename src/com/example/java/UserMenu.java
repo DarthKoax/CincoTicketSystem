@@ -1,5 +1,6 @@
 package com.example.java;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class UserMenu {
 
      // Load Ticket Data on startup
      DataReadWrite dataHandler = new DataReadWrite();
-     ArrayList<Ticket> tickets = dataHandler.readStoredTicketData();
+     ArrayList<Ticket> tickets = new ArrayList<Ticket>();//dataHandler.readStoredTicketData();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
