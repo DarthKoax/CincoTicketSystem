@@ -4,34 +4,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class DataReadWrite{
 
     //Ticket data is stored in Tickets.dat separated using ;
 
-    public Ticket ticket;
-    
-    /* Ticket Variables
-    public String firstName;
-    public String lastName;
-    public String staffNumber;
-    public String submitTicket;
-    public String email;
-    public String contact;
-    public String description;
-    public String severity;
-    */
-    
+    public Ticket ticket;    
     
     //This class can read the tickets stored in the external file
-    //and also write ticket objects to the external file
+    //and also write a ArrayList<Ticket> to the external file
 
-    //Constructor
-
-
-    //Method to open the file, read the contents, create an array of Ticket objects, 
-    //and pass the array of Ticket objects back out
-
+    //Method to read the stored external Ticket data file
+    //returns an ArrayList<Ticket> of the imported objects
     public ArrayList<Ticket> readStoredTicketData(){
         
         ArrayList<Ticket> tickets = new ArrayList<Ticket>();
@@ -39,7 +25,6 @@ public class DataReadWrite{
         System.out.println("Loading Ticket Data...");
 
         try{
-            //if(file.exists())
             Scanner scanner = new Scanner(file).useDelimiter(";");
 
             while (scanner.hasNextLine()){
@@ -64,16 +49,37 @@ public class DataReadWrite{
         return tickets;
     }
 
-    public void writeOneTicket(Ticket ticket){
+    //public void writeOneTicket(Ticket ticket){
         //Appends one ticket to file
-    }
+    //}
 
-    public void writeAllTickets(){
+    //This method receives an ArrayList<Ticket>, checks if the external file exists
+    //creates a file, if needed, then writes the data from each Ticket object into the 
+    //external file.
+    public void writeAllTickets(ArrayList<Ticket> tickets){
+        
         //Writes all tickets to file
 
-    }    
+        File file = new File("Tickets.dat");
 
-    //Method to receive a Ticket object, open a file and put the ticket info into the file. 
-    //Should also check to see if the ticket is already listed in the file.
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            
+            FileWriter fileWriter = new FileWriter("Tickets.dat"); 
+              
+            for (Ticket ticket:tickets){
+                fileWriter.write(ticket.toString());
+                //System.out.println("gonna save a ticket");
+            }
+            //tickets.forEach(ticket -> fileWriter.write(ticket.toString()));    
+            System.out.println("Ticket data Saved.");
+            
+        } catch (IOException e) {
+            System.out.println("Ticket data Save Error.");
+        }
+
+    }    
 
 }

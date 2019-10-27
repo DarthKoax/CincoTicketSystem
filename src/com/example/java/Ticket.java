@@ -92,4 +92,11 @@ public class Ticket {
       return s;
     }
 
+    public String toString(){
+        String objectString = "";
+        objectString += this.firstName +";"+ this.lastName +";"+ this.staffNumber +";"+ this.email;
+        objectString += this.contact +";"+ this.description +";"+ this.severity +";"+ this.status;
+
+        return objectString;
+    }
 }
