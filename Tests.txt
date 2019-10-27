@@ -1,0 +1,35 @@
+Main Menu 
+   Selecting 1: 
+      Takes the user to the Staff Menu tick: ✔
+
+   Selecting 2: 
+     Takes the user to the Technicians Menu: ✔
+
+   Selecting 3:
+      Exits the program: ✔
+
+Staff Menu:
+   Selecting 1: 
+      Enables the user to submit ticket: ✔
+      Out of range severity in not possible: ✔
+      Ticket is saved: ✖
+      Ticket status is open: ✖
+
+   Selecting 2:
+      Feature non functional ✔
+
+   Selecting 3: 
+      Exits program: ✔ (should this logout? return to main login)
+
+Technicians Menu:
+   Selecting 1: 
+      Displays all level 1 tickets in system: ✖
+
+   Selecting 2: 
+      Displays all level 2 tickets in system: ✖
+
+   Selecting 3: 
+      Exits program: ✔ (should this logout? return to main login)
+
+Unit Tests:
+   All ticket tests passed: ✖
