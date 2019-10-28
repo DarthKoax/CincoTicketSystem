@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TicketList implements Serializable {
 
    private static final long serialVersionUID = 1L;
-   private final ArrayList<Ticket> tickets = new ArrayList<Ticket>();;
+   private final ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
    public void add(Ticket ticket) {
       tickets.add(ticket);

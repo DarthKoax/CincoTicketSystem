@@ -40,8 +40,8 @@ public class SerializeList {
             FileInputStream fileStream = new FileInputStream(fileLocation);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
 
-            // This is an unchecked cast so will produce a warning suring compile time,
-            // However, at no point should a non Ticket object end up in the
+            // This is an unchecked cast so will produce a warning during compile time,
+            // However, at no point should a non Ticket object end up in the ArrayList<Ticket>
             tickets = (TicketList) objectStream.readObject();
 
             objectStream.close();

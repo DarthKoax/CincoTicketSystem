@@ -56,7 +56,7 @@ public class UserMenu {
             break;
         case "2":
             /*
-             * //DEBUG: print each Ticket in Tickets for(Ticket t: tickets){
+             * DEBUG: print each Ticket in Tickets for(Ticket t: tickets){
              * System.out.println(t); }
              */
             System.out.println("Not yet implemented");
