@@ -12,8 +12,8 @@ public class TechMenu {
     public Ticket ticket;
     // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
-    //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-    ArrayList<Ticket> tickets = cereal.readFile();
+    // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+    TicketList tickets = cereal.readFile();
 
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
@@ -22,20 +22,19 @@ public class TechMenu {
     public static final String LINE5 = "|           1.  LEVEL 1 SERVICE DESK            |";
     public static final String LINE6 = "|           2.  LEVEL 2 SERVICE DESK            |";
     public static final String LINE7 = "";
-    public static final String LINE8 = "|           3.      EXIT SYSTEM                 |";
+    public static final String LINE8 = "|           3.  LOG OUT                         |";
     public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
     public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
 
+    
     public String loginOption;
 
     Stream<String> techMenuStream = Stream
             .of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE6, LINE8, LINE4, LINE1 });
 
-    Stream<String> techLevel1Stream = Stream
-            .of(new String[] { LINE1, LINE7, LINE9, LINE7, LINE7 });
+    Stream<String> techLevel1Stream = Stream.of(new String[] { LINE1, LINE7, LINE9, LINE7, LINE7 });
 
-    Stream<String> techLevel2Stream = Stream
-            .of(new String[] { LINE1, LINE7, LINE10, LINE7, LINE7 });
+    Stream<String> techLevel2Stream = Stream.of(new String[] { LINE1, LINE7, LINE10, LINE7, LINE7 });
 
     public void printTechMenu() {
         techMenuStream.forEach(p -> System.out.println(p));
@@ -58,28 +57,20 @@ public class TechMenu {
         switch (loginOption) {
         case "1":
             techLevel1Stream.forEach(p -> System.out.println(p));
-            for (Ticket t: tickets) {
-                if (t.getSeverity().equals("LOW")||t.getSeverity().equals("MEDIUM")){
-                    System.out.println(t);
-                }
-            }
+            tickets.getTicketsLowAndMedium();
             break;
         case "2":
             techLevel2Stream.forEach(p -> System.out.println(p));
-            for (Ticket t: tickets) {
-                if (t.getSeverity().equals("HIGH")){
-                    System.out.println(t);
-                }
-
-            }
+            tickets.getTicketsHigh();
             break;
         case "3":
             System.out.println("Exit the system ");
-            System.exit(0);
-            break;
+            // System.exit(0);
+            return;
         default:
             System.out.println("Something went very wrong");
         }
     }
+    
 
 }

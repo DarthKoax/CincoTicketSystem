@@ -112,15 +112,15 @@ public class Ticket implements Serializable {
     */
 
     public String toString(){
-        String objectString = "Ticket=> [";
-        objectString += "First name: " + this.firstName +", ";
-        objectString += "Last name: " + this.lastName +", "; 
-        objectString += "Staff number: "+ this.staffNumber +", ";
-        objectString += "Email: "+ this.email+", ";
-        objectString += "Contact: "+ this.contact+", ";
-        objectString += "Description: "+ this.description +", ";
-        objectString += "Severity Level: "+ this.severity +", ";
-        objectString += "Status: "+ this.status+"]";
+        String objectString = "Ticket\n=======\n";
+        objectString += "First name: " + this.firstName +", \n";
+        objectString += "Last name: " + this.lastName +", \n"; 
+        objectString += "Staff number: "+ this.staffNumber +", \n";
+        objectString += "Email: "+ this.email+", \n";
+        objectString += "Contact: "+ this.contact+", \n";
+        objectString += "Description: "+ this.description +", \n";
+        objectString += "Severity Level: "+ this.severity +", \n";
+        objectString += "Status: "+ this.status+"\n";
         return objectString;
     }
     

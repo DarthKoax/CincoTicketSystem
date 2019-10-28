@@ -10,8 +10,9 @@ public class UserMenu {
 
     // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
-    //ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-    ArrayList<Ticket> tickets = cereal.readFile();
+    // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+    //ArrayList<Ticket> tickets = cereal.readFile();
+    TicketList tickets = cereal.readFile();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
@@ -20,14 +21,14 @@ public class UserMenu {
     public static final String LINE4 = "|                                               |";
     public static final String LINE5 = "|           1.    SUBMIT NEW TICKET             |";
     public static final String LINE7 = "";
-    public static final String LINE8 = "|           3.    EXIT SYSTEM                   |";
+    public static final String LINE8 = "|           3.    LOG OUT                       |";
 
     public String selection;
 
-    Stream<String> userMenuStream = Stream
-            .of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
+    Stream<String> userMenuStream = Stream.of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
 
     public void printUserMenu() {
+        System.out.println(tickets.size());
         userMenuStream.forEach(p -> System.out.println(p));
         System.out.print("Select Option...");
         selection = getOption();
@@ -47,23 +48,23 @@ public class UserMenu {
         switch (selection) {
         case "1":
             Ticket ticket = new Ticket();
-            if (ticket.getTicketInput()== false){}
-            else {
+            if (ticket.getTicketInput() == false) {
+            } else {
                 tickets.add(ticket);
                 cereal.writeFile(tickets);
             }
             break;
         case "2":
-           /* //DEBUG: print each Ticket in Tickets
-            for(Ticket t: tickets){
-                System.out.println(t);
-            }*/
+            /*
+             * //DEBUG: print each Ticket in Tickets for(Ticket t: tickets){
+             * System.out.println(t); }
+             */
             System.out.println("Not yet implemented");
             break;
         case "3":
             System.out.println("Exit the system ");
-            System.exit(0);
-            break;
+            //System.exit(0);
+            return;
         default:
             System.out.println("Something went very wrong");
         }
