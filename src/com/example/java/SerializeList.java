@@ -37,22 +37,16 @@ public class SerializeList {
         System.out.println("Opening List..");
 
         try {
-            /*
-             * File file = new File(fileLocation); if(!file.exists()){ file.createNewFile();
-             * }
-             */
+
             FileInputStream fileStream = new FileInputStream(ticketData);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
 
-            // This is an unchecked cast so will produce a warning during compile time,
-            // However, at no point should a non Ticket object end up in the ArrayList<Ticket>
             tickets = (TicketList) objectStream.readObject();
 
             objectStream.close();
             fileStream.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("Loading Ticket Data...");
             System.out.println("No Ticket Data Found.");
         } catch (ClassNotFoundException | InvalidClassException e) {
             // e.printStackTrace();
@@ -86,23 +80,17 @@ public class SerializeList {
         System.out.println("Opening List..");
 
         try {
-            /*
-             * File file = new File(fileLocation); if(!file.exists()){ file.createNewFile();
-             * }
-             */
+
             FileInputStream fileStream = new FileInputStream(technicianData);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
 
-            // This is an unchecked cast so will produce a warning during compile time,
-            // However, at no point should a non Ticket object end up in the ArrayList<Ticket>
             technicians = (TechnicianList) objectStream.readObject();
 
             objectStream.close();
             fileStream.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("Loading Ticket Data...");
-            System.out.println("No Ticket Data Found.");
+                System.out.println("No Technician Data Found.");
         } catch (ClassNotFoundException | InvalidClassException e) {
             // e.printStackTrace();
             System.out
