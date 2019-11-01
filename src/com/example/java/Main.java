@@ -14,7 +14,7 @@ public class Main {
         tests.testTicketClosed();
         // end of tests
 
-        // SerializeList cerial = new SerializeList();
+        // SerializeList cereal = new SerializeList();
 
         //Testing Remove from production. 
         // Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
@@ -22,9 +22,9 @@ public class Main {
         // TechnicianList technicians = new TechnicianList();
         // technicians.add(harry);
         // technicians.add(niall);
-        // cerial.writeTechnicianFile(technicians);
+        // cereal.writeTechnicianFile(technicians);
 
-        // TechnicianList technicians =  cerial.readTechnicianFile();
+        // TechnicianList technicians =  cereal.readTechnicianFile();
         // for(Technician tech : technicians){
         //     System.out.println(tech.firstName);
         // }
