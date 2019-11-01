@@ -1,6 +1,8 @@
 package com.example.java;
 
-public class Technician {
+import java.io.Serializable;
+
+public class Technician implements Serializable {
 
     public String firstName;
     public String lastName;

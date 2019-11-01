@@ -1,8 +1,5 @@
 package com.example.java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -12,7 +9,7 @@ public class UserMenu {
     SerializeList cereal = new SerializeList();
     // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     //ArrayList<Ticket> tickets = cereal.readFile();
-    TicketList tickets = cereal.readFile();
+    TicketList tickets = cereal.readTicketFile();
 
     Scanner scanner = new Scanner(System.in);
     public static final String LINE1 = "-------------------------------------------------";
@@ -51,7 +48,7 @@ public class UserMenu {
             if (ticket.getTicketInput() == false) {
             } else {
                 tickets.add(ticket);
-                cereal.writeFile(tickets);
+                cereal.writeTicketFile(tickets);
             }
             break;
         case "2":

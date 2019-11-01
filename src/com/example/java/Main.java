@@ -1,8 +1,5 @@
 package com.example.java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -10,12 +7,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Run Tests with -ea at runtime. 
+        // Run Tests with -ea at runtime.
         Tests tests = new Tests();
         tests.testTicket();
         tests.testTicketOpen();
         tests.testTicketClosed();
-        //end of tests
+        // end of tests
+
+        SerializeList cerial = new SerializeList();
+
+        //Testing Remove from production. 
+        // Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
+        // Technician niall = new Technician("Niall", "Horan", "niall.horan", "1");
+        // TechnicianList technicians = new TechnicianList();
+        // technicians.add(harry);
+        // technicians.add(niall);
+        // cerial.writeTechnicianFile(technicians);
+
+        // TechnicianList technicians =  cerial.readTechnicianFile();
+        // for(Technician tech : technicians){
+        //     System.out.println(tech.firstName);
+        // }
 
         /**
          * Will prompt user to enter information to create IT Issue ticket
@@ -31,7 +43,7 @@ public class Main {
 
         // TODO: Once this menu has been changed to a login screen this will need to be
         // changed so that the user doesnt return here after going into deeper menus
-        
+
         while (true) {
             // build then output main menu.
             Stream<String> mainMenuStream = Stream

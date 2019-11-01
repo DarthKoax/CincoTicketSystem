@@ -11,13 +11,15 @@ import java.io.FileNotFoundException;
 
 public class SerializeList {
 
-    String fileLocation = "TicketData.ser";
+    String ticketData = "TicketData.ser";
+    String technicianData = "TechnicianData.ser";
+
 
     // receive an ArrayList<Ticket> object and Serialize it to TicketData.ser
-    public void writeFile(TicketList tickets) {
+    public void writeTicketFile(TicketList tickets) {
         System.out.println("Saving List..");
         try {
-            FileOutputStream fileStream = new FileOutputStream(fileLocation);
+            FileOutputStream fileStream = new FileOutputStream(ticketData);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
             objectStream.writeObject(tickets);
             objectStream.close();
@@ -27,7 +29,9 @@ public class SerializeList {
         }
     }
 
-    public TicketList readFile() {
+
+
+    public TicketList readTicketFile() {
         TicketList tickets;
         tickets = new TicketList();
         System.out.println("Opening List..");
@@ -37,7 +41,7 @@ public class SerializeList {
              * File file = new File(fileLocation); if(!file.exists()){ file.createNewFile();
              * }
              */
-            FileInputStream fileStream = new FileInputStream(fileLocation);
+            FileInputStream fileStream = new FileInputStream(ticketData);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
 
             // This is an unchecked cast so will produce a warning during compile time,
@@ -58,5 +62,54 @@ public class SerializeList {
             e.printStackTrace();
         }
         return tickets;
+    }
+    /*
+    ---------------------
+    Technician List Methods. 
+    ---------------------
+    */
+    public void writeTechnicianFile(TechnicianList technicians) {
+        System.out.println("Saving List..");
+        try {
+            FileOutputStream fileStream = new FileOutputStream(technicianData);
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            objectStream.writeObject(technicians);
+            objectStream.close();
+            fileStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public TechnicianList readTechnicianFile() {
+        TechnicianList technicians;
+        technicians = new TechnicianList();
+        System.out.println("Opening List..");
+
+        try {
+            /*
+             * File file = new File(fileLocation); if(!file.exists()){ file.createNewFile();
+             * }
+             */
+            FileInputStream fileStream = new FileInputStream(technicianData);
+            ObjectInputStream objectStream = new ObjectInputStream(fileStream);
+
+            // This is an unchecked cast so will produce a warning during compile time,
+            // However, at no point should a non Ticket object end up in the ArrayList<Ticket>
+            technicians = (TechnicianList) objectStream.readObject();
+
+            objectStream.close();
+            fileStream.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Loading Ticket Data...");
+            System.out.println("No Ticket Data Found.");
+        } catch (ClassNotFoundException | InvalidClassException e) {
+            // e.printStackTrace();
+            System.out
+                    .println("Warning: Data may be Corrupt. Corrupt Data will be overwritten and is not recoverable.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return technicians;
     }
 }

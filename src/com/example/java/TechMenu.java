@@ -1,8 +1,6 @@
 package com.example.java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -13,7 +11,7 @@ public class TechMenu {
     // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
     // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-    TicketList tickets = cereal.readFile();
+    TicketList tickets = cereal.readTicketFile();
 
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
