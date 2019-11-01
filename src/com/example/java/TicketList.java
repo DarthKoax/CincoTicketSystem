@@ -2,11 +2,12 @@ package com.example.java;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class TicketList implements Serializable {
+public class TicketList implements Serializable, Iterable<Ticket>{
 
    private static final long serialVersionUID = 1L;
-   private final ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+   public final ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
    public void add(Ticket ticket) {
       tickets.add(ticket);
@@ -15,6 +16,16 @@ public class TicketList implements Serializable {
    public int size() {
       return tickets.size();
    }
+
+   @Override
+   public Iterator<Ticket> iterator() {
+      return tickets.iterator();
+   }
+
+   /*
+    * 
+    * ---- Below still in use but redundant 1/11/19---
+    */
 
    public void getTicketsLowAndMedium() {
       for (Ticket t : tickets) {

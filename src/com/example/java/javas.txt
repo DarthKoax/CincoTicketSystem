@@ -1,7 +1,0 @@
-./Main.java
-./SerializeList.java
-./TechMenu.java
-./Tests.java
-./Ticket.java
-./TicketList.java
-./UserMenu.java
