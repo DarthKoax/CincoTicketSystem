@@ -13,12 +13,16 @@ public class Ticket implements Serializable {
     public String description;
     public String severity;
     public String status;
+    public int id;
+
+    SerializeList cereal = new SerializeList();
+    TicketList tickets = cereal.readTicketFile();
 
     transient Scanner scanner = new Scanner(System.in);
 
     public Ticket(){status = "open";}
     
-    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status){
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id){
         this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +31,7 @@ public class Ticket implements Serializable {
         this.contact = contact;
         this.description = description;
         this.severity = severity;
+        this.id = id;
     }
 
     public boolean getTicketInput() {
@@ -64,6 +69,7 @@ public class Ticket implements Serializable {
         System.out.println("DO you want to submit the form? ");
         submitTicket = getSubmit();
         if (submitTicket.equalsIgnoreCase("Y")) {
+            id = tickets.getLastId();
             submission = true;
             System.out.println("Ticket submitted");
         } else {
@@ -121,6 +127,7 @@ public class Ticket implements Serializable {
         objectString += "Description: "+ this.description +", \n";
         objectString += "Severity Level: "+ this.severity +", \n";
         objectString += "Status: "+ this.status+"\n";
+        objectString += "ID: "+ this.id+"\n";
         return objectString;
     }
     
@@ -159,4 +166,11 @@ public class Ticket implements Serializable {
     public String getSeverity() {
         return severity;
     }
+//    public int getId() {
+//        return id;
+//    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+
 }

@@ -43,4 +43,16 @@ public class TicketList implements Serializable, Iterable<Ticket>{
       }
    }
 
+
+   public int getLastId() {
+
+      int tid =0;
+      if (tickets != null && !tickets.isEmpty()) {
+         Ticket item = tickets.get(tickets.size()-1);
+        // x =  item.id;
+         tid = item.id + 1;
+      }
+      return tid;
+   }
+
 }
