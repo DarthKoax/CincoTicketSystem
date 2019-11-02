@@ -11,15 +11,16 @@ public class Tests {
    private String description = "cant find the internet";
    private String severity = "H";
    private String status = "open";
-   
+   private int id =  0;
+
 
    public Tests() {
 
    }
 
    public void testTicket() {
-      // UPDATE HERE TO MATCH CONTRUCTOR
-      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status);
+      // UPDATE HERE TO MATCH CONSTRUCTOR
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, id);
       testTicketFirstname(ticket);
       testTicketLastname(ticket);
       testTicketStaffnumber(ticket);
@@ -27,24 +28,25 @@ public class Tests {
       testTicketContact(ticket);
       testTicketDescription(ticket);
       testTicketSeverity(ticket);
+      testTicketID(ticket);
 
    }
 
    public void testTicketOpen() {
       // UPDATE HERE TO MATCH CONTRUCTOR
 
-      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status);
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status,id);
       assert (ticket.status == "open") : "Ticket is closed or null, Should be open.";
    }
 
    public void testTicketClosed() {
       // UPDATE HERE TO MATCH CONTRUCTOR
       Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description,
-            severity, status = "closed");
+              severity, status = "closed",id);
       assert (ticket.status == "closed") : "Ticket is open or null, Should be closed.";
    }
 
-   
+
    private void testTicketFirstname(Ticket ticket) {
       assert (ticket.firstName == firstName);
    }
@@ -57,7 +59,7 @@ public class Tests {
       assert (ticket.staffNumber == staffNumber);
    }
 
- 
+
    private void testTicketEmail(Ticket ticket) {
       assert (ticket.email == email);
    }
@@ -72,6 +74,10 @@ public class Tests {
 
    private void testTicketSeverity(Ticket ticket) {
       assert (ticket.severity == severity);
+   }
+
+   private void testTicketID(Ticket ticket) {
+      assert (ticket.id == id);
    }
 
 }

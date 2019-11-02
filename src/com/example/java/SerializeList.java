@@ -1,15 +1,8 @@
 package com.example.java;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.IOException;
-import java.io.InvalidClassException;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import java.io.*;
 
-import java.io.FileNotFoundException;
-
-public class SerializeList {
+public class SerializeList implements Serializable {
 
     String ticketData = "TicketData.ser";
     String technicianData = "TechnicianData.ser";
