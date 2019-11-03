@@ -46,7 +46,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
     public int getLastId() {
 
-        int tid = 0;
+        int tid = 1;
 
         if (tickets != null && !tickets.isEmpty()) {
             Ticket item = tickets.get(tickets.size() - 1);
@@ -56,7 +56,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
     }
 
     public int getNumberOpenTickets() {
-        int numTickets = 1;
+        int numTickets = 0;
         if (tickets != null && !tickets.isEmpty()) {
             for (Ticket t : tickets) {
                 if (t.getStatus().equalsIgnoreCase("OPEN")) {
