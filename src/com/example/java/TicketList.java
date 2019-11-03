@@ -68,6 +68,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
     }
 
 
+
     public void getTicketsListLowAndMedium() {
         boolean first = true;
         for (Ticket t : tickets) {

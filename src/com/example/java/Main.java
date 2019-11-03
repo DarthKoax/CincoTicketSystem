@@ -5,6 +5,8 @@ import java.util.stream.Stream;
 
 public class Main {
 
+
+
     public static void main(String[] args) {
 
         // Run Tests with -ea at runtime.
@@ -14,7 +16,11 @@ public class Main {
         tests.testTicketClosed();
         // end of tests
 
-        // SerializeList cereal = new SerializeList();
+        //when main start load list of technicians
+        Technician technician = new Technician();
+        technician.loadTechnicians();
+
+        //SerializeList cereal = new SerializeList();
 
         //Testing Remove from production. 
         // Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
@@ -78,5 +84,29 @@ public class Main {
         } // While loop
 
     }
+
+
+    // load the technicians when the main starts
+    public static void loadTechnicians() {
+        SerializeList cereal = new SerializeList();
+        TechnicianList technicians =  cereal.readTechnicianFile();
+        Technician technician = new Technician();
+
+        Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
+        Technician niall = new Technician("Niall", "Horan", "niall.horan", "1");
+        Technician liam = new Technician("Liam", "Payne", "liam.payne", "1");
+        Technician louis = new Technician("Louis", "Tomlinsonand", "louis.tomlinsonand", "2");
+        Technician zayn = new Technician("Zayn", "Malik", "zayn.malik", "2");
+
+        technicians.add(harry);
+        technicians.add(niall);
+        technicians.add(liam);
+        technicians.add(louis);
+        technicians.add(zayn);
+        technicians.add(technician);
+        cereal.writeTechnicianFile(technicians);
+
+    }
+
 
 }
