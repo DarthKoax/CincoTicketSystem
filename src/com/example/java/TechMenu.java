@@ -12,7 +12,10 @@ public class TechMenu {
     SerializeList cereal = new SerializeList();
     // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     TicketList tickets = cereal.readTicketFile();
+    TechnicianList technicians =  cereal.readTechnicianFile();
     int numOpenTickets;
+    String techname;
+
 
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
@@ -29,20 +32,8 @@ public class TechMenu {
     public String loginOption;
 
 
-    Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE7);
-
-    Stream<String> techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE7);
-
     public void printTechMenu() {
-        // the number of spaces in line 11 after displaying 1 digit is
-        int spacesLine11 = 12;
-        numOpenTickets = tickets.getNumberOpenTickets();
-        String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
-        String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
-
-        Stream<String> techMenuStream = Stream
-                .of(LINE1, LINE2, LINE3, LINE4, LINE11, LINE4, LINE5, LINE6, LINE8, LINE4, LINE1);
-        techMenuStream.forEach(p -> System.out.println(p));
+        formatTechMenu();
         System.out.println("Enter number for Service desk or Option 3 to Exit");
         loginOption = getServiceDesk();
         validateLogin(loginOption);
@@ -83,6 +74,11 @@ public class TechMenu {
     }
 
     public void level1Login() {
+        //testing only
+        techname = "Harry Styles";
+
+        String LINE13 = "               " + techname;
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListLowAndMedium();
         int option = getLoginOption();
@@ -94,6 +90,11 @@ public class TechMenu {
     }
 
     public void level2Login() {
+        //testing only
+        techname = "Harry Styles";
+
+        String LINE14 = "               " + techname;
+        Stream<String> techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14 ,LINE7);
         techLevel2Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListHigh();
         int option = getLoginOption();
@@ -151,4 +152,26 @@ public class TechMenu {
         return submitAnswer;
     }
 
+    /**
+     *  Format the Techmenu
+     *  This will now display the number of tickets outstanding
+     *  Name of the technician
+     *  If no technician found the name will be blank
+     */
+    public void formatTechMenu() {
+        // the number of spaces in line 11 after displaying 1 digit is
+        int spacesLine11 = 12;
+        int spacesLine12 = 21;
+
+        numOpenTickets = tickets.getNumberOpenTickets();
+        //testing only
+        techname = "Harry Styles";
+        String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
+        String spaceL12 = getSpaceLeft(spacesLine12, techname.length());
+        String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
+        String LINE12 = "|                " + techname.toUpperCase() + spaceL12 + "|";
+        Stream<String> techMenuStream = Stream
+                .of(LINE1, LINE2, LINE3, LINE4, LINE12, LINE4,LINE11,  LINE4, LINE5, LINE6, LINE8, LINE4, LINE1);
+        techMenuStream.forEach(p -> System.out.println(p));
+    }
 }
