@@ -1,7 +1,7 @@
 package com.example.java;
 
-import java.util.Scanner;
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Ticket implements Serializable {
     public String firstName;
@@ -20,9 +20,11 @@ public class Ticket implements Serializable {
 
     transient Scanner scanner = new Scanner(System.in);
 
-    public Ticket(){status = "open";}
-    
-    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id){
+    public Ticket() {
+        status = "open";
+    }
+
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id) {
         this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,11 +60,11 @@ public class Ticket implements Serializable {
         System.out.println("Severity can only have values of low, medium or high");
 
         severity = getSeverityUser();
-        if (severity.equalsIgnoreCase("L")){
+        if (severity.equalsIgnoreCase("L")) {
             severity = "LOW";
-        } else if (severity.equalsIgnoreCase("M")){
+        } else if (severity.equalsIgnoreCase("M")) {
             severity = "MEDIUM";
-        } else if (severity.equalsIgnoreCase("H")){
+        } else if (severity.equalsIgnoreCase("H")) {
             severity = "HIGH";
         }
 
@@ -81,6 +83,7 @@ public class Ticket implements Serializable {
 
     /**
      * Submit can only be Y or N
+     *
      * @return
      */
     public String getSubmit() {
@@ -88,23 +91,24 @@ public class Ticket implements Serializable {
         do {
             System.out.println("Enter Y for YES or N for NO");
             submitAnswer = scanner.nextLine();
-        } while (!submitAnswer.equalsIgnoreCase("Y")&&!submitAnswer.equalsIgnoreCase("N"));
+        } while (!submitAnswer.equalsIgnoreCase("Y") && !submitAnswer.equalsIgnoreCase("N"));
         return submitAnswer;
     }
 
 
     /**
      * Severity can only have a status of low, medium or high
+     *
      * @return
      */
     public String getSeverityUser() {
-      String s = null;
-      do {
-          System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
-          System.out.print("Severity: ");
-          s = scanner.nextLine();
-      } while (!s.equalsIgnoreCase("L")&&!s.equalsIgnoreCase("M")&&!s.equalsIgnoreCase("H"));
-      return s;
+        String s = null;
+        do {
+            System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
+            System.out.print("Severity: ");
+            s = scanner.nextLine();
+        } while (!s.equalsIgnoreCase("L") && !s.equalsIgnoreCase("M") && !s.equalsIgnoreCase("H"));
+        return s;
     }
 
     /*
@@ -117,20 +121,34 @@ public class Ticket implements Serializable {
     }
     */
 
-    public String toString(){
+    public String toString() {
         String objectString = "Ticket\n=======\n";
-        objectString += "First name: " + this.firstName +", \n";
-        objectString += "Last name: " + this.lastName +", \n"; 
-        objectString += "Staff number: "+ this.staffNumber +", \n";
-        objectString += "Email: "+ this.email+", \n";
-        objectString += "Contact: "+ this.contact+", \n";
-        objectString += "Description: "+ this.description +", \n";
-        objectString += "Severity Level: "+ this.severity +", \n";
-        objectString += "Status: "+ this.status+"\n";
-        objectString += "ID: "+ this.id+"\n";
+        objectString += "First name: " + this.firstName + ", \n";
+        objectString += "Last name: " + this.lastName + ", \n";
+        objectString += "Staff number: " + this.staffNumber + ", \n";
+        objectString += "Email: " + this.email + ", \n";
+        objectString += "Contact: " + this.contact + ", \n";
+        objectString += "Description: " + this.description + ", \n";
+        objectString += "Severity Level: " + this.severity + ", \n";
+        objectString += "Status: " + this.status + "\n";
+        objectString += "ID: " + this.id + "\n";
         return objectString;
     }
-    
+
+    // displays the list of open tickets for the specific Technical level
+    public String listTickets() {
+        String lt = "ID: " + this.id;
+        lt += "   Description: " + String.format("%.15s", this.description) + ", \n";
+        lt += "   Severity Level: " + this.severity;
+        lt += "   Status: " + this.status + "\n";
+        return lt;
+    }
+
+    //display requested open ticket
+//    public String displayOpenTicket() {
+//
+//    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -156,7 +174,7 @@ public class Ticket implements Serializable {
     }
 
     public String getDescription() {
-        return  description;
+        return description;
     }
 
     public String getStatus() {
@@ -166,11 +184,13 @@ public class Ticket implements Serializable {
     public String getSeverity() {
         return severity;
     }
-//    public int getId() {
-//        return id;
-//    }
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }
