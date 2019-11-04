@@ -111,16 +111,6 @@ public class Ticket implements Serializable {
         return s;
     }
 
-    /*
-    public String toString(boolean nothing){
-        String objectString = "";
-        objectString += this.firstName +"\t"+ this.lastName +"\t"+ this.staffNumber +"\t"+ this.email+"\t";
-        objectString += this.contact +"\t"+ this.description +"\t"+ this.severity +"\t"+ this.status+"\n";
-
-        return objectString;
-    }
-    */
-
     public String toString() {
         String objectString = "Ticket\n=======\n";
         objectString += "First name: " + this.firstName + ", \n";
@@ -193,4 +183,24 @@ public class Ticket implements Serializable {
         this.id = id;
     }
 
+    public void setSeverityHigh(){
+        this.severity = "HIGH";
+    }
+
+    public void setSeverityMedium(){
+        this.severity = "MEDIUM";
+    }
+
+    public void setSeverityLow(){
+        this.severity = "LOW";
+    }
+
+    public void setStatusOpen(){
+        this.status = "open";
+    }
+    
+    public void setStatusClosed(){
+        this.status = "closed";
+    }
+    
 }
