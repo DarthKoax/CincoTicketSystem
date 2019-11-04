@@ -23,6 +23,31 @@ public class TechnicianList implements Serializable, Iterable<Technician> {
    }
 
 
+   // get technical users first name
+   public String getFirstName(String techname) {
+      String techFirstName = null;
+      if (technicians != null && !technicians.equals("")) {
+         for (Technician t : technicians) {
+            if (t.getUserName().equalsIgnoreCase(techname) ) {
+               techFirstName = t.getFirstName();
+            }
+         }
+      }
+      return techFirstName;
+   }
+
+   // get technical users last name
+   public String getLastName(String techname) {
+      String techLastName = null;
+      if (technicians != null && !technicians.equals("")) {
+         for (Technician t : technicians) {
+            if (t.getUserName().equalsIgnoreCase(techname) ) {
+               techLastName= t.getLastName();
+            }
+         }
+      }
+      return techLastName;
+   }
 
 }
 

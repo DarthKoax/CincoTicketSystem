@@ -20,6 +20,9 @@ public class Main {
         Technician technician = new Technician();
         technician.loadTechnicians();
 
+        // for testing
+        String userNameTech = "Harry.Styles";
+
         //SerializeList cereal = new SerializeList();
 
         //Testing Remove from production. 
@@ -71,7 +74,7 @@ public class Main {
                 break;
             case "2":
                 TechMenu techmenu = new TechMenu();
-                techmenu.printTechMenu();
+                techmenu.printTechMenu(userNameTech);
                 break;
             case "3":
                 System.out.println("Exit the system ");

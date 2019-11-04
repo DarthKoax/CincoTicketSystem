@@ -13,9 +13,10 @@ public class TechMenu {
     // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     TicketList tickets = cereal.readTicketFile();
     TechnicianList technicians =  cereal.readTechnicianFile();
-    int numOpenTickets;
-    String techname;
+    Technician technician = new Technician();
 
+    int numOpenTickets;
+    String techUserName;
 
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
@@ -30,13 +31,14 @@ public class TechMenu {
 
 
     public String loginOption;
+    public String userNameTech;
 
-
-    public void printTechMenu() {
-        formatTechMenu();
+    public void printTechMenu(String userNameTech) {
+        userNameTech = userNameTech;
+        formatTechMenu(userNameTech);
         System.out.println("Enter number for Service desk or Option 3 to Exit");
         loginOption = getServiceDesk();
-        validateLogin(loginOption);
+        validateLogin(loginOption, userNameTech);
     }
 
     public String getServiceDesk() {
@@ -49,13 +51,13 @@ public class TechMenu {
         return level;
     }
 
-    public void validateLogin(String loginOption) {
+    public void validateLogin(String loginOption, String userNameTech) {
         switch (loginOption) {
             case "1":
-                level1Login();
+                level1Login(userNameTech);
                 break;
             case "2":
-                level2Login();
+                level2Login(userNameTech);
                 break;
             case "3":
                 System.out.println("Exit the system ");
@@ -73,11 +75,12 @@ public class TechMenu {
         return spaceCalc;
     }
 
-    public void level1Login() {
-        //testing only
-        techname = "Harry Styles";
+    public void level1Login(String userNameTech) {
 
-        String LINE13 = "               " + techname;
+        String first = technicians.getFirstName(userNameTech);
+        String last = technicians.getLastName(userNameTech);
+        String techie1 = first + " " + last;
+        String LINE13 = "               " + techie1;
         Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListLowAndMedium();
@@ -89,12 +92,15 @@ public class TechMenu {
         }
     }
 
-    public void level2Login() {
-        //testing only
-        techname = "Harry Styles";
+    public void level2Login(String userNameTech) {
+        String first = technicians.getFirstName(userNameTech);
+        String last = technicians.getLastName(userNameTech);
+        String techie2 = first + " " + last;
 
-        String LINE14 = "               " + techname;
-        Stream<String> techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14 ,LINE7);
+        String LINE14;
+        LINE14 = "               " + techie2;
+        Stream<String> techLevel2Stream;
+        techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14 ,LINE7);
         techLevel2Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListHigh();
         int option = getLoginOption();
@@ -158,14 +164,16 @@ public class TechMenu {
      *  Name of the technician
      *  If no technician found the name will be blank
      */
-    public void formatTechMenu() {
+    public void formatTechMenu(String userNameTech) {
         // the number of spaces in line 11 after displaying 1 digit is
         int spacesLine11 = 12;
         int spacesLine12 = 21;
 
         numOpenTickets = tickets.getNumberOpenTickets();
-        //testing only
-        techname = "Harry Styles";
+        String first = technicians.getFirstName(userNameTech);
+        String last = technicians.getLastName(userNameTech);
+        String techname = first + " " + last;
+
         String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
         String spaceL12 = getSpaceLeft(spacesLine12, techname.length());
         String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
