@@ -34,7 +34,7 @@ public class TechMenu {
     public void printTechMenu(Technician currentUser) {
 
         while (true) {
-            formatTechMenu(currentUser.userName);
+            formatTechMenu(currentUser);
 
             loginOption = getServiceDesk();
             validateLogin(loginOption, currentUser);
@@ -170,7 +170,7 @@ public class TechMenu {
      * Format the Techmenu This will now display the number of tickets outstanding
      * Name of the technician If no technician found the name will be blank
      */
-    public void formatTechMenu(String userNameTech) {
+    public void formatTechMenu(Technician user) {
         // the number of spaces in line 11 after displaying 1 digit is
         int spacesLine11 = 12;
         int spacesLine12 = 21;
@@ -181,9 +181,9 @@ public class TechMenu {
         // String techname = first + " " + last;
 
         String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
-        String spaceL12 = getSpaceLeft(spacesLine12, userNameTech.length());
+        String spaceL12 = getSpaceLeft(spacesLine12, user.userName.length());
         String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
-        String LINE12 = "|                " + userNameTech.toUpperCase() + spaceL12 + "|";
+        String LINE12 = "|                " + user.firstName.toUpperCase() + " " + user.lastName.toUpperCase() + spaceL12 + "|";
         Stream<String> techMenuStream = Stream.of(LINE1, LINE2, LINE3, LINE4, LINE12, LINE4, LINE11, LINE4, LINE5,
                 LINE6, LINE8, LINE4, LINE1);
         techMenuStream.forEach(p -> System.out.println(p));

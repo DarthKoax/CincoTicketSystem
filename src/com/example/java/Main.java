@@ -18,7 +18,6 @@ public class Main {
         // Technician technician = new Technician();
         loadTechnicians();
 
-        
         /**
          * Will prompt user to enter information to create IT Issue ticket
          */
@@ -32,7 +31,6 @@ public class Main {
         String LINE7 = "|               3.     EXIT SYSTEM                     |";
         String LINE8 = "|                      LOGIN                           |";
 
-
         while (true) {
             // build then output main menu.
             Stream<String> mainMenuStream = Stream.of(new String[] { LINE1, LINE3, LINE2, LINE3, LINE8, LINE3, LINE1 });
@@ -42,11 +40,9 @@ public class Main {
             String selection;
             Login login = new Login();
             Technician currentUser = login.SystemLogin();
-            
+
             // get valid user selection
             do {
-                // selection = scanner.nextLine();
-
                 if (currentUser instanceof Technician) {
                     selection = "2";
                 } else {
