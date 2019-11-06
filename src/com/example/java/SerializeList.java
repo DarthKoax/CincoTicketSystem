@@ -10,7 +10,7 @@ public class SerializeList implements Serializable {
 
     // receive an ArrayList<Ticket> object and Serialize it to TicketData.ser
     public void writeTicketFile(TicketList tickets) {
-        System.out.println("Saving List..");
+        // System.out.println("Saving List..");
         try {
             FileOutputStream fileStream = new FileOutputStream(ticketData);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
@@ -27,7 +27,7 @@ public class SerializeList implements Serializable {
     public TicketList readTicketFile() {
         TicketList tickets;
         tickets = new TicketList();
-        System.out.println("Opening List..");
+        // System.out.println("Opening List..");
 
         try {
 
@@ -56,7 +56,7 @@ public class SerializeList implements Serializable {
     ---------------------
     */
     public void writeTechnicianFile(TechnicianList technicians) {
-        System.out.println("Saving List..");
+        // System.out.println("Saving List..");
         try {
             FileOutputStream fileStream = new FileOutputStream(technicianData);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
@@ -70,7 +70,7 @@ public class SerializeList implements Serializable {
     public TechnicianList readTechnicianFile() {
         TechnicianList technicians;
         technicians = new TechnicianList();
-        System.out.println("Opening List..");
+        // System.out.println("Opening List..");
 
         try {
 

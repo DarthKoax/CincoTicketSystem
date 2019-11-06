@@ -1,6 +1,5 @@
 package com.example.java;
 
-
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -12,7 +11,7 @@ public class TechMenu {
     SerializeList cereal = new SerializeList();
     // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     TicketList tickets = cereal.readTicketFile();
-    TechnicianList technicians =  cereal.readTechnicianFile();
+    TechnicianList technicians = cereal.readTechnicianFile();
     Technician technician = new Technician();
 
     int numOpenTickets;
@@ -29,16 +28,17 @@ public class TechMenu {
     public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
     public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
 
-
     public String loginOption;
     public String userNameTech;
 
-    public void printTechMenu(String userNameTech) {
-        userNameTech = userNameTech;
-        formatTechMenu(userNameTech);
-        System.out.println("Enter number for Service desk or Option 3 to Exit");
-        loginOption = getServiceDesk();
-        validateLogin(loginOption, userNameTech);
+    public void printTechMenu(Technician currentUser) {
+
+        while (true) {
+            formatTechMenu(currentUser.userName);
+
+            loginOption = getServiceDesk();
+            validateLogin(loginOption, currentUser);
+        }
     }
 
     public String getServiceDesk() {
@@ -51,19 +51,23 @@ public class TechMenu {
         return level;
     }
 
-    public void validateLogin(String loginOption, String userNameTech) {
+    public void validateLogin(String loginOption, Technician tech) {
         switch (loginOption) {
-            case "1":
-                level1Login(userNameTech);
-                break;
-            case "2":
-                level2Login(userNameTech);
-                break;
-            case "3":
-                System.out.println("Exit the system ");
-                return;
-            default:
-                System.out.println("Something went very wrong");
+        case "1":
+
+            level1Login(tech);
+            break;
+        case "2":
+
+            level2Login(tech);
+            break;
+        case "3":
+            System.out.println("Exit the system ");
+            System.exit(0);
+            break;
+        default:
+            System.out.println(loginOption);
+            System.out.println("Something went very wrong");
         }
     }
 
@@ -75,12 +79,13 @@ public class TechMenu {
         return spaceCalc;
     }
 
-    public void level1Login(String userNameTech) {
+    public void level1Login(Technician user) {
 
-        String first = technicians.getFirstName(userNameTech);
-        String last = technicians.getLastName(userNameTech);
-        String techie1 = first + " " + last;
-        String LINE13 = "               " + techie1;
+        // String first = technicians.getFirstName(userNameTech);
+        // String last = technicians.getLastName(userNameTech);
+        // String techie1 = first + " " + last;
+        String LINE13;
+        LINE13 = "               " + user.firstName + " " + user.lastName;
         Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListLowAndMedium();
@@ -92,15 +97,15 @@ public class TechMenu {
         }
     }
 
-    public void level2Login(String userNameTech) {
-        String first = technicians.getFirstName(userNameTech);
-        String last = technicians.getLastName(userNameTech);
-        String techie2 = first + " " + last;
+    public void level2Login(Technician user) {
+        // String first = technicians.getFirstName(userNameTech);
+        // String last = technicians.getLastName(userNameTech);
+        // String techie2 = first + " " + last;
 
         String LINE14;
-        LINE14 = "               " + techie2;
+        LINE14 = "               " + user.firstName + " " + user.lastName;
         Stream<String> techLevel2Stream;
-        techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14 ,LINE7);
+        techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14, LINE7);
         techLevel2Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListHigh();
         int option = getLoginOption();
@@ -112,6 +117,7 @@ public class TechMenu {
     }
 
     public int getLoginOption() {
+
         int option = 0;
         boolean isNumeric = false;
         do {
@@ -123,6 +129,7 @@ public class TechMenu {
             isNumeric = true;
             option = scanner.nextInt();
             scanner.nextLine();
+
         } while (isNumeric == false);
         return option;
     }
@@ -155,14 +162,13 @@ public class TechMenu {
             System.out.println("Enter Y for YES or N for NO");
             submitAnswer = scanner.nextLine();
         } while (!submitAnswer.equalsIgnoreCase("Y") && !submitAnswer.equalsIgnoreCase("N"));
+
         return submitAnswer;
     }
 
     /**
-     *  Format the Techmenu
-     *  This will now display the number of tickets outstanding
-     *  Name of the technician
-     *  If no technician found the name will be blank
+     * Format the Techmenu This will now display the number of tickets outstanding
+     * Name of the technician If no technician found the name will be blank
      */
     public void formatTechMenu(String userNameTech) {
         // the number of spaces in line 11 after displaying 1 digit is
@@ -170,16 +176,16 @@ public class TechMenu {
         int spacesLine12 = 21;
 
         numOpenTickets = tickets.getNumberOpenTickets();
-        String first = technicians.getFirstName(userNameTech);
-        String last = technicians.getLastName(userNameTech);
-        String techname = first + " " + last;
+        // String first = technicians.getFirstName(userNameTech);
+        // String last = technicians.getLastName(userNameTech);
+        // String techname = first + " " + last;
 
         String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
-        String spaceL12 = getSpaceLeft(spacesLine12, techname.length());
+        String spaceL12 = getSpaceLeft(spacesLine12, userNameTech.length());
         String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
-        String LINE12 = "|                " + techname.toUpperCase() + spaceL12 + "|";
-        Stream<String> techMenuStream = Stream
-                .of(LINE1, LINE2, LINE3, LINE4, LINE12, LINE4,LINE11,  LINE4, LINE5, LINE6, LINE8, LINE4, LINE1);
+        String LINE12 = "|                " + userNameTech.toUpperCase() + spaceL12 + "|";
+        Stream<String> techMenuStream = Stream.of(LINE1, LINE2, LINE3, LINE4, LINE12, LINE4, LINE11, LINE4, LINE5,
+                LINE6, LINE8, LINE4, LINE1);
         techMenuStream.forEach(p -> System.out.println(p));
     }
 }
