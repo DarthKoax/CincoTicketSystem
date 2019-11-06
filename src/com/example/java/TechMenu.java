@@ -92,8 +92,8 @@ public class TechMenu {
         int option = getLoginOption();
         if (option > 0) {
             tickets.getRequestedTicket(option);
-            changeSeverity();
-            changeStatus();
+            changeSeverity(option);
+            changeStatus(option);
         }
     }
 
@@ -111,8 +111,8 @@ public class TechMenu {
         int option = getLoginOption();
         if (option > 0) {
             tickets.getRequestedTicket(option);
-            changeSeverity();
-            changeStatus();
+            changeSeverity(option);
+            changeStatus(option);
         }
     }
 
@@ -134,19 +134,30 @@ public class TechMenu {
         return option;
     }
 
-    public void changeSeverity() {
+    public void changeSeverity(int ticketOption) {
         System.out.println("Do you want to change the severity of the ticket?");
         String option = getSubmit();
         if (option.equalsIgnoreCase("Y")) {
-            System.out.println("Change the severity here");
+            
+            String severity = null;
+            do {
+                System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
+                System.out.print("Severity: ");
+                severity = scanner.nextLine();
+            } while (!severity.equalsIgnoreCase("L") && !severity.equalsIgnoreCase("M") && !severity.equalsIgnoreCase("H"));
+            if (tickets.setTicketSeverity(ticketOption, severity)){
+                System.out.println("Severity has been set.");
+            } else {System.out.println("Severity has not been set.");}
         }
     }
 
-    public void changeStatus() {
-        System.out.println("Do you want to change the status of the ticket?");
+    public void changeStatus(int ticketOption) {
+        System.out.println("Do you want to set the status of this ticket to closed?");
         String option = getSubmit();
         if (option.equalsIgnoreCase("Y")) {
-            System.out.println("Change the status here");
+            if (tickets.closeRequestedTicket(ticketOption)){
+                System.out.println("This ticket has been closed.");
+            } else {System.out.println("Ticket was not closed.");}
         }
     }
 

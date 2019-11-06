@@ -108,4 +108,44 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
 
     }
+
+    public boolean closeRequestedTicket(int num) {
+
+        boolean outcome = false;
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num) {
+                    t.setStatusClosed();
+                    outcome = true;
+                }
+            }
+        }
+
+        return outcome;
+    }
+
+    public boolean setTicketSeverity(int num, String severity) {
+
+        boolean outcome = false;
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num) {
+                    if (severity.equalsIgnoreCase("H")){
+                        t.setSeverityHigh();
+                        outcome = true;
+                    } else if(severity.equalsIgnoreCase("M")){
+                        t.setSeverityMedium();
+                        outcome = true;
+                    } else if(severity.equalsIgnoreCase("L")){
+                        t.setSeverityLow();
+                        outcome = true;
+                    }
+                }
+            }
+        }
+
+        return outcome;
+    }
 }
