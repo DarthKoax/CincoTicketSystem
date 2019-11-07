@@ -146,6 +146,7 @@ public class TechMenu {
                 severity = scanner.nextLine();
             } while (!severity.equalsIgnoreCase("L") && !severity.equalsIgnoreCase("M") && !severity.equalsIgnoreCase("H"));
             if (tickets.setTicketSeverity(ticketOption, severity)){
+                cereal.writeTicketFile(tickets);
                 System.out.println("Severity has been set.");
             } else {System.out.println("Severity has not been set.");}
         }
@@ -156,6 +157,7 @@ public class TechMenu {
         String option = getSubmit();
         if (option.equalsIgnoreCase("Y")) {
             if (tickets.closeRequestedTicket(ticketOption)){
+                cereal.writeTicketFile(tickets);
                 System.out.println("This ticket has been closed.");
             } else {System.out.println("Ticket was not closed.");}
         }
