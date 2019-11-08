@@ -1,8 +1,5 @@
 package com.example.java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -10,11 +7,9 @@ public class UserMenu {
 
     // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
-    // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-    //ArrayList<Ticket> tickets = cereal.readFile();
-    TicketList tickets = cereal.readFile();
-
+    TicketList tickets = cereal.readTicketFile();
     Scanner scanner = new Scanner(System.in);
+
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
     public static final String LINE3 = "|                  GENERAL USER                 |";
@@ -25,14 +20,19 @@ public class UserMenu {
 
     public String selection;
 
-    Stream<String> userMenuStream = Stream.of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
+    // Stream<String> userMenuStream = Stream.of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
 
     public void printUserMenu() {
-        System.out.println(tickets.size());
-        userMenuStream.forEach(p -> System.out.println(p));
-        System.out.print("Select Option...");
-        selection = getOption();
-        callMenuFeature(selection);
+        while (true) {
+            Stream<String> userMenuStream = Stream
+                    .of(new String[] { LINE1, LINE2, LINE3, LINE4, LINE5, LINE8, LINE4, LINE1 });
+
+            userMenuStream.forEach(p -> System.out.println(p));
+            System.out.println("Select Option...");
+            selection = getOption();
+            callMenuFeature(selection);
+        }
+
     }
 
     public String getOption() {
@@ -51,7 +51,7 @@ public class UserMenu {
             if (ticket.getTicketInput() == false) {
             } else {
                 tickets.add(ticket);
-                cereal.writeFile(tickets);
+                cereal.writeTicketFile(tickets);
             }
             break;
         case "2":
@@ -63,8 +63,8 @@ public class UserMenu {
             break;
         case "3":
             System.out.println("Exit the system ");
-            //System.exit(0);
-            return;
+            System.exit(0);
+            break;
         default:
             System.out.println("Something went very wrong");
         }
