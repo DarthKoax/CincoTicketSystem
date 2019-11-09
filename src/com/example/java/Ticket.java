@@ -128,6 +128,7 @@ public class Ticket implements Serializable {
         objectString += "Severity Level: " + this.severity + ", \n";
         objectString += "Status: " + this.status + "\n";
         objectString += "ID: " + this.id + "\n";
+        objectString += "TechUserName: " + this.techUserName + "\n";
         return objectString;
     }
 
@@ -192,27 +193,31 @@ public class Ticket implements Serializable {
         this.id = id;
     }
 
-    public void setSeverityHigh() {
+    public void setSeverityHigh(){
         this.severity = "HIGH";
     }
 
-    public void setSeverityMedium() {
+    public void setSeverityMedium(){
         this.severity = "MEDIUM";
     }
 
-    public void setSeverityLow() {
+    public void setSeverityLow(){
         this.severity = "LOW";
     }
 
-    public void setStatusOpen() {
+    public void setStatusOpen(){
         this.status = "open";
     }
 
-    public void setStatusClosed() {
+    public void setStatusClosed(){
         this.status = "closed";
     }
 
     public String getTechUserName() {
         return techUserName;
+    }
+
+    public void setTechUserName(String techUserName) {
+        this.techUserName = techUserName;
     }
 }

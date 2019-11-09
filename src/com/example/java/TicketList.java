@@ -9,14 +9,6 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
     private static final long serialVersionUID = 1L;
     public final ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-//    private Random randomGenerator;
-//    String technameReturn = null;
-//    int tNumTickets = 0;
-//    String tName = "";
-//    List<String> techNameList = new ArrayList<>();
-//    boolean  possibleEqualCount = false;
-//    int equalCount = 0;
-//    Map<String, Integer> countsTech = new HashMap<String, Integer>();
 
     public void add(Ticket ticket) {
         tickets.add(ticket);
@@ -184,6 +176,30 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return technameReturn;
     }
 
+
+    /**
+     * Set the Technical userid for the corresponding Ticket
+     *
+     * @param num
+     * @return
+     */
+
+    public boolean setTechUserName(int num) {
+        CalculateTechName tc = new CalculateTechName();
+        boolean outcome = false;
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num) {
+                    String technameReturn = tc.calcTechUser(t.severity);
+                    t.setTechUserName(technameReturn);
+                    outcome = true;
+                }
+            }
+        }
+
+        return outcome;
+    }
 
 }
 
