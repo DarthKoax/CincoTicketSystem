@@ -2,6 +2,10 @@ package com.example.java;
 
 import java.io.Serializable;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.text.ParseException;
 
 public class Ticket implements Serializable {
     public String firstName;
@@ -14,6 +18,10 @@ public class Ticket implements Serializable {
     public String severity;
     public String status;
     public int id;
+
+    private SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+    // public Date date;
+    public Calendar date;
 
     SerializeList cereal = new SerializeList();
     TicketList tickets = cereal.readTicketFile();
@@ -34,6 +42,24 @@ public class Ticket implements Serializable {
         this.description = description;
         this.severity = severity;
         this.id = id;
+        
+        this.date = Calendar.getInstance();
+    }
+
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id,int year, int month, int day) {
+        System.out.println("Hello");
+        this.status = status;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.staffNumber = staffNumber;
+        this.email = email;
+        this.contact = contact;
+        this.description = description;
+        this.severity = severity;
+        this.id = id;
+        
+        this.date = Calendar.getInstance();
+        this.date.set(year,month,day);
     }
 
     public boolean getTicketInput() {
@@ -56,6 +82,10 @@ public class Ticket implements Serializable {
 
         System.out.print("Description: ");
         description = scanner.nextLine();
+
+        // date = new Date(System.currentTimeMillis());
+        date = Calendar.getInstance();
+        System.out.println(date.getTime());
 
         System.out.println("Severity can only have values of low, medium or high");
 
