@@ -1,6 +1,7 @@
 package com.example.java;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ticket implements Serializable {
@@ -14,9 +15,11 @@ public class Ticket implements Serializable {
     public String severity;
     public String status;
     public int id;
+    public String techUserName;
 
     SerializeList cereal = new SerializeList();
     TicketList tickets = cereal.readTicketFile();
+    ArrayList<Technician> technicians = new ArrayList<Technician>();
 
     transient Scanner scanner = new Scanner(System.in);
 
@@ -24,7 +27,7 @@ public class Ticket implements Serializable {
         status = "open";
     }
 
-    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id) {
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id, String techUserName) {
         this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,10 +37,12 @@ public class Ticket implements Serializable {
         this.description = description;
         this.severity = severity;
         this.id = id;
+        this.techUserName = techUserName;
     }
 
     public boolean getTicketInput() {
         boolean submission = false;
+        techUserName = "";
         System.out.println("Enter the following information to create an IT Issue Ticket");
         System.out.print("First Name:  ");
         firstName = scanner.nextLine();
@@ -72,6 +77,7 @@ public class Ticket implements Serializable {
         submitTicket = getSubmit();
         if (submitTicket.equalsIgnoreCase("Y")) {
             id = tickets.getLastId();
+            techUserName = getTech(severity);
             submission = true;
             System.out.println("Ticket submitted");
         } else {
@@ -134,10 +140,13 @@ public class Ticket implements Serializable {
         return lt;
     }
 
-    //display requested open ticket
-//    public String displayOpenTicket() {
-//
-//    }
+
+    public String getTech(String severity) {
+        String techName = null;
+        techName = tickets.getTechName(severity);
+        return techName;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -183,24 +192,27 @@ public class Ticket implements Serializable {
         this.id = id;
     }
 
-    public void setSeverityHigh(){
+    public void setSeverityHigh() {
         this.severity = "HIGH";
     }
 
-    public void setSeverityMedium(){
+    public void setSeverityMedium() {
         this.severity = "MEDIUM";
     }
 
-    public void setSeverityLow(){
+    public void setSeverityLow() {
         this.severity = "LOW";
     }
 
-    public void setStatusOpen(){
+    public void setStatusOpen() {
         this.status = "open";
     }
-    
-    public void setStatusClosed(){
+
+    public void setStatusClosed() {
         this.status = "closed";
     }
-    
+
+    public String getTechUserName() {
+        return techUserName;
+    }
 }

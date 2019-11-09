@@ -4,10 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class TicketList implements Serializable, Iterable<Ticket> {
 
     private static final long serialVersionUID = 1L;
     public final ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+//    private Random randomGenerator;
+//    String technameReturn = null;
+//    int tNumTickets = 0;
+//    String tName = "";
+//    List<String> techNameList = new ArrayList<>();
+//    boolean  possibleEqualCount = false;
+//    int equalCount = 0;
+//    Map<String, Integer> countsTech = new HashMap<String, Integer>();
 
     public void add(Ticket ticket) {
         tickets.add(ticket);
@@ -24,7 +33,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
     /*
      *
-     * ---- Below still in use but redundant 1/11/19---
+     *
      */
 
     public void getTicketsLowAndMedium() {
@@ -66,7 +75,6 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
         return numTickets;
     }
-
 
 
     public void getTicketsListLowAndMedium() {
@@ -132,13 +140,13 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         if (tickets != null && !tickets.isEmpty()) {
             for (Ticket t : tickets) {
                 if (t.getId() == num) {
-                    if (severity.equalsIgnoreCase("H")){
+                    if (severity.equalsIgnoreCase("H")) {
                         t.setSeverityHigh();
                         outcome = true;
-                    } else if(severity.equalsIgnoreCase("M")){
+                    } else if (severity.equalsIgnoreCase("M")) {
                         t.setSeverityMedium();
                         outcome = true;
-                    } else if(severity.equalsIgnoreCase("L")){
+                    } else if (severity.equalsIgnoreCase("L")) {
                         t.setSeverityLow();
                         outcome = true;
                     }
@@ -148,4 +156,34 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
         return outcome;
     }
+
+
+    /**
+     * get technician name who ticket will be assigned too
+     * if no tickets previously assigned , know that all technicians have 0 tickets
+     *
+     * @param severity
+     * @return
+     */
+    public String getTechName(String severity) {
+
+        CalculateTechName tc = new CalculateTechName();
+        String technameReturn = null;
+
+
+        if (tickets != null && !tickets.isEmpty()) {
+            technameReturn = tc.calcTechUser(severity);
+        } else {
+            if (severity.equalsIgnoreCase("HIGH")) {
+                technameReturn = tc.calcLevel2Technician();
+            } else {
+                technameReturn = tc.calcLevel1Technician();
+            }
+        }
+
+        return technameReturn;
+    }
+
+
 }
+
