@@ -9,7 +9,6 @@ public class TechMenu {
     public Ticket ticket;
     // Load Ticket Data on startup
     SerializeList cereal = new SerializeList();
-    // ArrayList<Ticket> tickets = new ArrayList<Ticket>();
     TicketList tickets = cereal.readTicketFile();
     TechnicianList technicians = cereal.readTechnicianFile();
     Technician technician = new Technician();
@@ -149,6 +148,10 @@ public class TechMenu {
                 cereal.writeTicketFile(tickets);
                 System.out.println("Severity has been set.");
             } else {System.out.println("Severity has not been set.");}
+            if (tickets.setTechUserName(ticketOption)) {
+                cereal.writeTicketFile(tickets);
+                System.out.println("Technical Username has been set.");
+            } else {System.out.println("Technical Username has not been set.");}
         }
     }
 
