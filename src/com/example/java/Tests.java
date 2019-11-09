@@ -12,7 +12,7 @@ public class Tests {
    private String severity = "H";
    private String status = "open";
    private int id =  0;
-
+   private String techUserName = "harry.styles";
 
    public Tests() {
 
@@ -20,7 +20,7 @@ public class Tests {
 
    public void testTicket() {
       // UPDATE HERE TO MATCH CONSTRUCTOR
-      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, id);
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, id, techUserName);
       testTicketFirstname(ticket);
       testTicketLastname(ticket);
       testTicketStaffnumber(ticket);
@@ -29,20 +29,20 @@ public class Tests {
       testTicketDescription(ticket);
       testTicketSeverity(ticket);
       testTicketID(ticket);
-
+      techUserName(ticket);
    }
 
    public void testTicketOpen() {
       // UPDATE HERE TO MATCH CONTRUCTOR
 
-      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status,id);
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status,id, techUserName);
       assert (ticket.status == "open") : "Ticket is closed or null, Should be open.";
    }
 
    public void testTicketClosed() {
       // UPDATE HERE TO MATCH CONTRUCTOR
       Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description,
-              severity, status = "closed",id);
+              severity, status = "closed",id,techUserName);
       assert (ticket.status == "closed") : "Ticket is open or null, Should be closed.";
    }
 
@@ -78,6 +78,9 @@ public class Tests {
 
    private void testTicketID(Ticket ticket) {
       assert (ticket.id == id);
+   }
+   private void techUserName(Ticket ticket) {
+      assert (ticket.techUserName == techUserName);
    }
 
 }
