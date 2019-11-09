@@ -17,6 +17,11 @@ public class Main {
         // Technician technician = new Technician();
         loadTechnicians();
 
+        SerializeList cereal = new SerializeList();
+        TicketList tickets = cereal.readTicketFile();
+        tickets.ClearOutOfDate();
+        cereal.writeTicketFile(tickets);
+
         /**
          * Will prompt user to enter information to create IT Issue ticket
          */
