@@ -204,26 +204,31 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return outcome;
     }
         public void ClearOutOfDate() {
+    public void ClearOutOfDate() {
+        
         int daysToArchiveAfter = 7;
-        long sevenDays = 86400 * 7;
+        
         Calendar currentDate = Calendar.getInstance();
-        long currentDateUnix = currentDate.getTimeInMillis();
+        
         for (Ticket t : tickets) {
-            Calendar ticketToCheck = t.date;
             System.out.println(t.date.getTime());
-            long sample = ticketToCheck.getTimeInMillis();
-            long testing  = currentDateUnix - (sample + sevenDays);
-            System.out.println(testing);
-            ticketToCheck.add(Calendar.DATE, daysToArchiveAfter);
-            if (currentDate.before(ticketToCheck)) {
-                System.out.println(currentDate.before(ticketToCheck));
-                System.out.println(currentDate.getTime() + " < " + ticketToCheck.getTime());
-                System.out.println(currentDate.getTimeInMillis() + " < " + ticketToCheck.getTimeInMillis());
-                t.setStatusClosed();
-            } else{
-                System.out.println(currentDate.getTime() + " > " + ticketToCheck.getTime());
-                System.out.println(currentDate.getTimeInMillis() + " > " + ticketToCheck.getTimeInMillis());
-            }// if
+            System.out.println(t.getStatus());
+            if (t.getStatus().equalsIgnoreCase("OPEN")) {
+               
+                Calendar ticketToCheck = (Calendar) t.date.clone();
+              
+                ticketToCheck.add(Calendar.DATE, daysToArchiveAfter);
+               
+                if (currentDate.after(ticketToCheck)) {
+                    System.out.println("Closing old tickets");
+                    t.setStatusClosed();
+                } else {
+
+                    System.out.println("Ticket is not 7 days old");
+
+                } // if
+            }//if
+            
         } // for
     }// CleaerOutOfDate
 }
