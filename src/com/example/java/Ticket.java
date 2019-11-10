@@ -2,10 +2,8 @@ package com.example.java;
 
 import java.io.Serializable;
 import java.util.Scanner;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.text.ParseException;
+
 
 public class Ticket implements Serializable {
     public String firstName;
@@ -19,8 +17,7 @@ public class Ticket implements Serializable {
     public String status;
     public int id;
 
-    private SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
-    // public Date date;
+        // public Date date;
     public Calendar date;
 
     SerializeList cereal = new SerializeList();
@@ -47,7 +44,6 @@ public class Ticket implements Serializable {
     }
 
     public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id,int year, int month, int day) {
-        System.out.println("Hello");
         this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +52,7 @@ public class Ticket implements Serializable {
         this.contact = contact;
         this.description = description;
         this.severity = severity;
-        this.id = id;
+        this.id = tickets.getLastId();
         
         this.date = Calendar.getInstance();
         this.date.set(year,month,day);
