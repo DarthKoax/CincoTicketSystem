@@ -157,8 +157,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         Calendar currentDate = Calendar.getInstance();
         
         for (Ticket t : tickets) {
-            System.out.println(t.date.getTime());
-            System.out.println(t.getStatus());
+            
             if (t.getStatus().equalsIgnoreCase("OPEN")) {
                
                 Calendar ticketToCheck = (Calendar) t.date.clone();
