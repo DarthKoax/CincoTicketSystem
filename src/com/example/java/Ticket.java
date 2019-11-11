@@ -133,14 +133,29 @@ public class Ticket implements Serializable {
     }
 
     // displays the list of open tickets for the specific Technical level
-    public String listTickets() {
-        String lt = "ID: " + this.id;
-        lt += "   Description: " + String.format("%.15s", this.description) + ", \n";
-        lt += "   Severity Level: " + this.severity;
-        lt += "   Status: " + this.status + "\n";
-        return lt;
+    public String listTickets()
+    {
+       if (getStatus().equalsIgnoreCase("OPEN"))
+       {
+          String lt = "ID: " + this.id;
+    	  {
+             lt += "   Description: " + String.format("%.15s", this.description) + ", \n";
+             lt += "   Severity Level: " + this.severity;
+             lt += "   Status: " + this.status + "\n";
+          }
+    	  return lt;
+       }	
+       return "";
     }
-
+    
+    // displays the list of closed tickets
+    public String archivedTickets() {
+        String at = "ID: " + this.id;
+        at += "   Description: " + String.format("%.15s", this.description) + ", \n";
+        at += "   Severity Level: " + this.severity;
+        at += "   Status: " + this.status + "\n";
+        return at;
+    }
 
     public String getTech(String severity) {
         String techName = null;

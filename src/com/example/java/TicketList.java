@@ -68,7 +68,18 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return numTickets;
     }
 
-
+    public void getArchivedTicket()
+    {	
+    	System.out.println ("List of Archived Tickets\n=====================\n");
+    	for (Ticket t : tickets)
+    	{
+           if (t.status.equalsIgnoreCase("closed"))
+           {
+              System.out.println(t.archivedTickets());
+           }
+        }
+     }
+    
     public void getTicketsListLowAndMedium() {
         boolean first = true;
         for (Ticket t : tickets) {
@@ -108,6 +119,18 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
 
     }
+    
+    public void getArchivedTicket(int num) {
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.status == "closed") {
+                    System.out.println(t);
+                }
+            }
+        }
+
+    }
 
     public boolean closeRequestedTicket(int num) {
 
@@ -117,6 +140,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
             for (Ticket t : tickets) {
                 if (t.getId() == num) {
                     t.setStatusClosed();
+                    t.techUserName = ("n/a");
                     outcome = true;
                 }
             }
