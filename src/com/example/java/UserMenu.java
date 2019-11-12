@@ -50,6 +50,7 @@ public class UserMenu {
             Ticket ticket = new Ticket();
             if (ticket.getTicketInput() == false) {
             } else {
+                
                 tickets.add(ticket);
                 cereal.writeTicketFile(tickets);
             }

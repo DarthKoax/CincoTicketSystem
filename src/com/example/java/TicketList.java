@@ -205,11 +205,12 @@ public class TicketList implements Serializable, Iterable<Ticket> {
     
     public void ClearOutOfDate() {
         int daysToArchiveAfter = 7;
-        
+        System.out.println("Clearing out of date tickets");
         Calendar currentDate = Calendar.getInstance();
         for (Ticket t : tickets) {
             if (t.getStatus().equalsIgnoreCase("OPEN")) {
-            Calendar ticketToCheck = (Calendar) t.date.clone();
+                Calendar ticketToCheck = (Calendar) t.date.clone();
+                ticketToCheck.add(Calendar.DATE,daysToArchiveAfter);
                 if (currentDate.after(ticketToCheck)) {
                     System.out.println("Closing old tickets");
                     t.setStatusClosed();

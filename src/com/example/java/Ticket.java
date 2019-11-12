@@ -64,6 +64,7 @@ public class Ticket implements Serializable {
 
     public boolean getTicketInput() {
         boolean submission = false;
+        
         techUserName = "";
         System.out.println("Enter the following information to create an IT Issue Ticket");
         System.out.print("First Name:  ");
