@@ -20,7 +20,7 @@ public class Tests {
 
    public Ticket addTicketCusomDate(int year, int month, int day){
       int fancyMonth = month - 1;
-      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, id,year,fancyMonth,day);
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, year,fancyMonth,day);
       ticket.setStatusOpen();
       return ticket;
    }
@@ -56,6 +56,8 @@ public class Tests {
               severity, status = "closed",id,techUserName);
       assert (ticket.status == "closed") : "Ticket is open or null, Should be closed.";
    }
+
+   
 
 
    private void testTicketFirstname(Ticket ticket) {

@@ -47,7 +47,7 @@ public class Ticket implements Serializable {
         this.date = Calendar.getInstance();
     }
 
-    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id,int year, int month, int day) {
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int year, int month, int day) {
         this.status = status;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,6 +57,7 @@ public class Ticket implements Serializable {
         this.description = description;
         this.severity = severity;
         this.id = tickets.getLastId();
+        this.techUserName = getTech(severity);
         
         this.date = Calendar.getInstance();
         this.date.set(year,month,day);
