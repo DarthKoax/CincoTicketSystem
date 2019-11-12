@@ -22,6 +22,9 @@ public class Ticket implements Serializable {
         // public Date date;
     public Calendar date;
 
+        // public Date date;
+    public Calendar date;
+
     SerializeList cereal = new SerializeList();
     TicketList tickets = cereal.readTicketFile();
     ArrayList<Technician> technicians = new ArrayList<Technician>();
