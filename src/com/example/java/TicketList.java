@@ -148,6 +148,18 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
 
     }
+
+    public void getRequestedClosedTicket(int num) {
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num && t.getStatus().equalsIgnoreCase("closed")) {
+                    System.out.println(t);
+                }
+            }
+        }
+
+    }
     
     public boolean getRequestedTicket(int num, String user) {
 

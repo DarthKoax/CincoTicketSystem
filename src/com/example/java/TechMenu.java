@@ -141,12 +141,12 @@ public class TechMenu {
     public void displayArchivedTickets(Technician user)
     {
         String LINE13 = "               " + user.firstName + " " + user.lastName;
-        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE15, LINE8, LINE13, LINE8);
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE15, LINE4, LINE13, LINE4);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getArchivedTicket();
         int option = getLoginOption();
         if (option > 0) {
-            tickets.getRequestedTicket(option);
+            tickets.getRequestedClosedTicket(option);
             //changeSeverity(option);
             //changeStatus(option);
         }
