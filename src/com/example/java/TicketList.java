@@ -71,10 +71,6 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return numTickets;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5bbdd1d021430d1d66c6e6a19245c0d3a818c643
     public void getTicketsListLowAndMedium() {
         boolean first = true;
         for (Ticket t : tickets) {
@@ -208,31 +204,23 @@ public class TicketList implements Serializable, Iterable<Ticket> {
     }
     
     public void ClearOutOfDate() {
-        
         int daysToArchiveAfter = 7;
         
         Calendar currentDate = Calendar.getInstance();
-        
         for (Ticket t : tickets) {
-            
             if (t.getStatus().equalsIgnoreCase("OPEN")) {
-               
-                Calendar ticketToCheck = (Calendar) t.date.clone();
-              
-               
+            Calendar ticketToCheck = (Calendar) t.date.clone();
                 if (currentDate.after(ticketToCheck)) {
                     System.out.println("Closing old tickets");
                     t.setStatusClosed();
                 } else {
-
                     System.out.println("Ticket is not 7 days old");
-
                 } // if
             }//if
             
         } // for
     }// CleaerOutOfDate
-}
+}//end of class
 
 
 

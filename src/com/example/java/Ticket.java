@@ -19,10 +19,7 @@ public class Ticket implements Serializable {
     public int id;
     public String techUserName;
 
-        // public Date date;
-    public Calendar date;
-
-        // public Date date;
+    
     public Calendar date;
 
     SerializeList cereal = new SerializeList();

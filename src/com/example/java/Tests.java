@@ -24,6 +24,10 @@ public class Tests {
       ticket.setStatusOpen();
       return ticket;
    }
+   //NOTES:
+   //Ticket customTicket = tests.addTicketCusomDate(2019, 11 , 01);
+   //tickets.add(customTicket);
+   //cereal.writeTicketFile(tickets);
 
    public void testTicket() {
       // UPDATE HERE TO MATCH CONSTRUCTOR
