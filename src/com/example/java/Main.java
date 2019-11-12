@@ -88,7 +88,7 @@ public class Main {
             Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
             Technician niall = new Technician("Niall", "Horan", "niall.horan", "1");
             Technician liam = new Technician("Liam", "Payne", "liam.payne", "1");
-            Technician louis = new Technician("Louis", "Tomlinsonand", "louis.tomlinsonand", "2");
+            Technician louis = new Technician("Louis", "Tomlinson", "louis.tomlinson", "2");
             Technician zayn = new Technician("Zayn", "Malik", "zayn.malik", "2");
 
             technicians.add(harry);

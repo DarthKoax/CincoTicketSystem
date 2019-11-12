@@ -161,6 +161,8 @@ public class TicketList implements Serializable, Iterable<Ticket> {
             }
         }
         return result;
+    }
+    
     public void getArchivedTicket(int num) {
 
         if (tickets != null && !tickets.isEmpty()) {

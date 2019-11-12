@@ -28,7 +28,7 @@ public class TechMenu {
     public static final String LINE8 = "|           3.  LOG OUT                         |";
     //public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
     public static final String LINE9 = "               ASSIGNED TICKETS                ";
-    public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
+    //public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
     public static final String LINE15 = "           ARCHIVED TICKETS                    ";    
 
     public String loginOption;
@@ -47,10 +47,10 @@ public class TechMenu {
     public String getServiceDesk() {
         String level = null;
         do {
-            System.out.println("You can only enter option '1', '2', '3', '4'");
+            System.out.println("You can only enter option '1', '2', '3'");
             level = scanner.nextLine();
 
-        } while (!level.equals("1") && !level.equals("2") && !level.equals("3") && !level.equals("4"));
+        } while (!level.equals("1") && !level.equals("2") && !level.equals("3"));
         return level;
     }
 
@@ -62,13 +62,10 @@ public class TechMenu {
             break;
         case "2":
             //ARCHIVED TICKETS()
-            //archivedTickets();
+            displayArchivedTickets(tech);
             break;
         case "3":
-        	displayArchivedTickets(tech);
-            break;
-        case "4":
-            System.out.println("Exit the system ");
+        	System.out.println("Exit the system ");
             System.exit(0);
             break;
         default:
@@ -100,7 +97,8 @@ public class TechMenu {
             }
         }
     } 
-
+    
+    /**
     public void level1Login(Technician user) {
 
         // String first = technicians.getFirstName(userNameTech);
@@ -119,6 +117,7 @@ public class TechMenu {
         }
     }
 
+   
     public void level2Login(Technician user) {
         // String first = technicians.getFirstName(userNameTech);
         // String last = technicians.getLastName(userNameTech);
@@ -137,7 +136,8 @@ public class TechMenu {
             changeStatus(option);
         }
     }
-    
+    **/
+
     public void displayArchivedTickets(Technician user)
     {
         String LINE13 = "               " + user.firstName + " " + user.lastName;
@@ -147,8 +147,8 @@ public class TechMenu {
         int option = getLoginOption();
         if (option > 0) {
             tickets.getRequestedTicket(option);
-            changeSeverity(option);
-            changeStatus(option);
+            //changeSeverity(option);
+            //changeStatus(option);
         }
     }
 
@@ -226,7 +226,7 @@ public class TechMenu {
     public void formatTechMenu(Technician user) {
         // the number of spaces in line 11 after displaying 1 digit is
         //int spacesLine11 = 12;
-        int spacesLine12 = 21;
+        int spacesLine12 = 22;
         int spacesLine13 = 8;
 
         numOpenTickets = tickets.getNumberAssignedTickets(user.getUserName());
