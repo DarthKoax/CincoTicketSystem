@@ -14,7 +14,7 @@ public class Main {
         tests.testTicketClosed();
         // end of tests
 
-        // when main start load list of technicians
+        // when main starts, load list of technicians
         // Technician technician = new Technician();
         loadTechnicians();
 

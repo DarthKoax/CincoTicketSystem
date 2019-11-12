@@ -71,6 +71,18 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return numTickets;
     }
 
+    public int getNumberAssignedTickets(String user) {
+        int numTickets = 0;
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getStatus().equalsIgnoreCase("OPEN") && t.getTechUserName().equalsIgnoreCase(user)) {
+                    numTickets++;
+                }
+            }
+        }
+        return numTickets;
+    }
+
     public void getTicketsListLowAndMedium() {
         boolean first = true;
         for (Ticket t : tickets) {
@@ -99,6 +111,20 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
     }
 
+    public void getTicketsListTechnician(String technician) {
+        boolean first = true;
+        for (Ticket t : tickets) {
+            if (t.getTechUserName().equals(technician)) {
+                if (first) {
+                    System.out.println("List of Assigned Tickets\n=====================\n");
+                    first = false;
+                }
+
+                System.out.println(t.listTickets());
+            }
+        }
+    }
+
     public void getRequestedTicket(int num) {
 
         if (tickets != null && !tickets.isEmpty()) {
@@ -109,6 +135,20 @@ public class TicketList implements Serializable, Iterable<Ticket> {
             }
         }
 
+    }
+    
+    public boolean getRequestedTicket(int num, String user) {
+
+        boolean result = false;
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num && t.getTechUserName().equalsIgnoreCase(user)) {
+                    System.out.println(t);
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 
     public boolean closeRequestedTicket(int num) {
