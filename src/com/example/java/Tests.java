@@ -6,17 +6,28 @@ public class Tests {
    private String firstName = "Bob";
    private String lastName = "Brown";
    private String staffNumber = "1234";
-   private String email = "bob.brown@cinco.net";
+   private String email = "test.ticket@cinco.net";
    private String contact = "045555555";
    private String description = "cant find the internet";
    private String severity = "H";
-   private String status = "open";
+   private String status = "OPEN";
    private int id =  0;
    private String techUserName = "harry.styles";
 
    public Tests() {
 
    }
+
+   public Ticket addTicketCusomDate(int year, int month, int day){
+      int fancyMonth = month - 1;
+      Ticket ticket = new Ticket(firstName, lastName, staffNumber, email, contact, description, severity,status, id,year,fancyMonth,day);
+      ticket.setStatusOpen();
+      return ticket;
+   }
+   //NOTES:
+   //Ticket customTicket = tests.addTicketCusomDate(2019, 11 , 01);
+   //tickets.add(customTicket);
+   //cereal.writeTicketFile(tickets);
 
    public void testTicket() {
       // UPDATE HERE TO MATCH CONSTRUCTOR

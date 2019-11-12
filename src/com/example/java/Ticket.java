@@ -3,6 +3,8 @@ package com.example.java;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Calendar;
+
 
 public class Ticket implements Serializable {
     public String firstName;
@@ -16,6 +18,9 @@ public class Ticket implements Serializable {
     public String status;
     public int id;
     public String techUserName;
+
+    
+    public Calendar date;
 
     SerializeList cereal = new SerializeList();
     TicketList tickets = cereal.readTicketFile();
@@ -38,6 +43,23 @@ public class Ticket implements Serializable {
         this.severity = severity;
         this.id = id;
         this.techUserName = techUserName;
+        
+        this.date = Calendar.getInstance();
+    }
+
+    public Ticket(String firstName, String lastName, String staffNumber, String email, String contact, String description, String severity, String status, int id,int year, int month, int day) {
+        this.status = status;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.staffNumber = staffNumber;
+        this.email = email;
+        this.contact = contact;
+        this.description = description;
+        this.severity = severity;
+        this.id = tickets.getLastId();
+        
+        this.date = Calendar.getInstance();
+        this.date.set(year,month,day);
     }
 
     public boolean getTicketInput() {
@@ -61,6 +83,10 @@ public class Ticket implements Serializable {
 
         System.out.print("Description: ");
         description = scanner.nextLine();
+
+        // date = new Date(System.currentTimeMillis());
+        date = Calendar.getInstance();
+        System.out.println(date.getTime());
 
         System.out.println("Severity can only have values of low, medium or high");
 

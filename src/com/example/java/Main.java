@@ -1,5 +1,6 @@
 package com.example.java;
 
+
 import java.util.stream.Stream;
 
 public class Main {
@@ -16,6 +17,13 @@ public class Main {
         // when main start load list of technicians
         // Technician technician = new Technician();
         loadTechnicians();
+
+        SerializeList cereal = new SerializeList();
+        TicketList tickets = cereal.readTicketFile();
+        //Check all tickets for dates and close those which are 7+ days old. 
+        tickets.ClearOutOfDate();
+        cereal.writeTicketFile(tickets);
+
 
         /**
          * Will prompt user to enter information to create IT Issue ticket

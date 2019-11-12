@@ -3,6 +3,10 @@ package com.example.java;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.text.ParseException;
 
 
 public class TicketList implements Serializable, Iterable<Ticket> {
@@ -44,7 +48,6 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
     }
 
-
     public int getLastId() {
 
         int tid = 1;
@@ -67,7 +70,6 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
         return numTickets;
     }
-
 
     public void getTicketsListLowAndMedium() {
         boolean first = true;
@@ -200,6 +202,26 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
         return outcome;
     }
+    
+    public void ClearOutOfDate() {
+        int daysToArchiveAfter = 7;
+        
+        Calendar currentDate = Calendar.getInstance();
+        for (Ticket t : tickets) {
+            if (t.getStatus().equalsIgnoreCase("OPEN")) {
+            Calendar ticketToCheck = (Calendar) t.date.clone();
+                if (currentDate.after(ticketToCheck)) {
+                    System.out.println("Closing old tickets");
+                    t.setStatusClosed();
+                } else {
+                    System.out.println("Ticket is not 7 days old");
+                } // if
+            }//if
+            
+        } // for
+    }// CleaerOutOfDate
+}//end of class
 
-}
+
+
 
