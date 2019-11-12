@@ -29,6 +29,7 @@ public class TechMenu {
     //public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
     public static final String LINE9 = "               ASSIGNED TICKETS                ";
     public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
+    public static final String LINE15 = "           ARCHIVED TICKETS                    ";    
 
     public String loginOption;
     public String userNameTech;
@@ -46,10 +47,10 @@ public class TechMenu {
     public String getServiceDesk() {
         String level = null;
         do {
-            System.out.println("You can only enter option '1' , '2' ,'3'");
+            System.out.println("You can only enter option '1', '2', '3', '4'");
             level = scanner.nextLine();
 
-        } while (!level.equals("1") && !level.equals("2") && !level.equals("3"));
+        } while (!level.equals("1") && !level.equals("2") && !level.equals("3") && !level.equals("4"));
         return level;
     }
 
@@ -64,6 +65,9 @@ public class TechMenu {
             //archivedTickets();
             break;
         case "3":
+        	displayArchivedTickets(tech);
+            break;
+        case "4":
             System.out.println("Exit the system ");
             System.exit(0);
             break;
@@ -104,7 +108,7 @@ public class TechMenu {
         // String techie1 = first + " " + last;
         String LINE13;
         LINE13 = "               " + user.firstName + " " + user.lastName;
-        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE10, LINE8, LINE13, LINE8);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListLowAndMedium();
         int option = getLoginOption();
@@ -123,9 +127,23 @@ public class TechMenu {
         String LINE14;
         LINE14 = "               " + user.firstName + " " + user.lastName;
         Stream<String> techLevel2Stream;
-        techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14, LINE7);
+        techLevel2Stream = Stream.of(LINE1, LINE11, LINE8, LINE14, LINE8);
         techLevel2Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListHigh();
+        int option = getLoginOption();
+        if (option > 0) {
+            tickets.getRequestedTicket(option);
+            changeSeverity(option);
+            changeStatus(option);
+        }
+    }
+    
+    public void displayArchivedTickets(Technician user)
+    {
+        String LINE13 = "               " + user.firstName + " " + user.lastName;
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE15, LINE8, LINE13, LINE8);
+        techLevel1Stream.forEach(p -> System.out.println(p));
+        tickets.getArchivedTicket();
         int option = getLoginOption();
         if (option > 0) {
             tickets.getRequestedTicket(option);
