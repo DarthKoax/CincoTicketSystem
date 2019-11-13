@@ -20,12 +20,16 @@ public class TechMenu {
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
     public static final String LINE3 = "|                TECHNICIAN USER                |";
     public static final String LINE4 = "|                                               |";
-    public static final String LINE5 = "|           1.  LEVEL 1 SERVICE DESK            |";
-    public static final String LINE6 = "|           2.  LEVEL 2 SERVICE DESK            |";
+    //public static final String LINE5 = "|           1.  LEVEL 1 SERVICE DESK            |";
+    public static final String LINE5 = "|           1.  ASSIGNED TICKETS                |";
+    //public static final String LINE6 = "|           2.  LEVEL 2 SERVICE DESK            |";
+    public static final String LINE6 = "|           2.  ARCHIVED TICKETS                |";
     public static final String LINE7 = "";
     public static final String LINE8 = "|           3.  LOG OUT                         |";
-    public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
-    public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
+    //public static final String LINE9 = "               LEVEL 1 SERVICE DESK TICKETS    ";
+    public static final String LINE9 = "               ASSIGNED TICKETS                ";
+    //public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
+    public static final String LINE15 = "           ARCHIVED TICKETS                    ";    
 
     public String loginOption;
     public String userNameTech;
@@ -43,7 +47,7 @@ public class TechMenu {
     public String getServiceDesk() {
         String level = null;
         do {
-            System.out.println("You can only enter option '1' , '2' ,'3'");
+            System.out.println("You can only enter option '1', '2', '3'");
             level = scanner.nextLine();
 
         } while (!level.equals("1") && !level.equals("2") && !level.equals("3"));
@@ -53,15 +57,15 @@ public class TechMenu {
     public void validateLogin(String loginOption, Technician tech) {
         switch (loginOption) {
         case "1":
-
-            level1Login(tech);
+            //ASSIGNED TICKETS()
+            assignedTickets(tech);
             break;
         case "2":
-
-            level2Login(tech);
+            //ARCHIVED TICKETS()
+            displayArchivedTickets(tech);
             break;
         case "3":
-            System.out.println("Exit the system ");
+        	System.out.println("Exit the system ");
             System.exit(0);
             break;
         default:
@@ -78,6 +82,23 @@ public class TechMenu {
         return spaceCalc;
     }
 
+    public void assignedTickets(Technician user) {
+
+        String LINE13;
+        LINE13 = "               " + user.firstName + " " + user.lastName;
+        Stream<String> assignedTicketStream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
+        assignedTicketStream.forEach(p -> System.out.println(p));
+        tickets.getTicketsListTechnician(user.getUserName());
+        int option = getLoginOption();
+        if (option > 0) {
+            if(tickets.getRequestedTicket(option,user.getUserName())){
+                changeSeverity(option);
+                changeStatus(option);    
+            }
+        }
+    } 
+    
+    /**
     public void level1Login(Technician user) {
 
         // String first = technicians.getFirstName(userNameTech);
@@ -85,7 +106,7 @@ public class TechMenu {
         // String techie1 = first + " " + last;
         String LINE13;
         LINE13 = "               " + user.firstName + " " + user.lastName;
-        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE7, LINE9, LINE7, LINE13, LINE7);
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE10, LINE8, LINE13, LINE8);
         techLevel1Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListLowAndMedium();
         int option = getLoginOption();
@@ -96,6 +117,7 @@ public class TechMenu {
         }
     }
 
+   
     public void level2Login(Technician user) {
         // String first = technicians.getFirstName(userNameTech);
         // String last = technicians.getLastName(userNameTech);
@@ -104,7 +126,7 @@ public class TechMenu {
         String LINE14;
         LINE14 = "               " + user.firstName + " " + user.lastName;
         Stream<String> techLevel2Stream;
-        techLevel2Stream = Stream.of(LINE1, LINE7, LINE10, LINE7, LINE14, LINE7);
+        techLevel2Stream = Stream.of(LINE1, LINE11, LINE8, LINE14, LINE8);
         techLevel2Stream.forEach(p -> System.out.println(p));
         tickets.getTicketsListHigh();
         int option = getLoginOption();
@@ -112,6 +134,21 @@ public class TechMenu {
             tickets.getRequestedTicket(option);
             changeSeverity(option);
             changeStatus(option);
+        }
+    }
+    **/
+
+    public void displayArchivedTickets(Technician user)
+    {
+        String LINE13 = "               " + user.firstName + " " + user.lastName;
+        Stream<String> techLevel1Stream = Stream.of(LINE1, LINE15, LINE4, LINE13, LINE4);
+        techLevel1Stream.forEach(p -> System.out.println(p));
+        tickets.getArchivedTicket();
+        int option = getLoginOption();
+        if (option > 0) {
+            tickets.getRequestedClosedTicket(option);
+            //changeSeverity(option);
+            //changeStatus(option);
         }
     }
 
@@ -188,17 +225,19 @@ public class TechMenu {
      */
     public void formatTechMenu(Technician user) {
         // the number of spaces in line 11 after displaying 1 digit is
-        int spacesLine11 = 12;
-        int spacesLine12 = 21;
+        //int spacesLine11 = 12;
+        int spacesLine12 = 22;
+        int spacesLine13 = 8;
 
-        numOpenTickets = tickets.getNumberOpenTickets();
+        numOpenTickets = tickets.getNumberAssignedTickets(user.getUserName());
         // String first = technicians.getFirstName(userNameTech);
         // String last = technicians.getLastName(userNameTech);
         // String techname = first + " " + last;
 
-        String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
+        //String spaceL11 = getSpaceLeft(spacesLine11, numOpenTickets);
+        String spaceL13 = getSpaceLeft(spacesLine13, numOpenTickets);
         String spaceL12 = getSpaceLeft(spacesLine12, user.userName.length());
-        String LINE11 = "|           NUMBER OF OPEN TICKETS: " + numOpenTickets + spaceL11 + "|";
+        String LINE11 = "|           NUMBER OF ASSIGNED TICKETS: " + numOpenTickets + spaceL13 + "|";
         String LINE12 = "|                " + user.firstName.toUpperCase() + " " + user.lastName.toUpperCase() + spaceL12 + "|";
         Stream<String> techMenuStream = Stream.of(LINE1, LINE2, LINE3, LINE4, LINE12, LINE4, LINE11, LINE4, LINE5,
                 LINE6, LINE8, LINE4, LINE1);

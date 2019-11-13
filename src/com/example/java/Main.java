@@ -14,7 +14,7 @@ public class Main {
         tests.testTicketClosed();
         // end of tests
 
-        // when main start load list of technicians
+        // when main starts, load list of technicians
         // Technician technician = new Technician();
         loadTechnicians();
         seedTickets();
@@ -89,7 +89,7 @@ public class Main {
             Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
             Technician niall = new Technician("Niall", "Horan", "niall.horan", "1");
             Technician liam = new Technician("Liam", "Payne", "liam.payne", "1");
-            Technician louis = new Technician("Louis", "Tomlinsonand", "louis.tomlinsonand", "2");
+            Technician louis = new Technician("Louis", "Tomlinson", "louis.tomlinson", "2");
             Technician zayn = new Technician("Zayn", "Malik", "zayn.malik", "2");
 
             technicians.add(harry);
@@ -117,6 +117,28 @@ public class Main {
             Ticket ticket2 = new Ticket("Frank", "Buster", "6578", "Frank.Buster@cinco.com", "04457558", "Computer wont turn on", "LOW","open", 2019,9-1,12);
             tickets.add(ticket2);
             cereal.writeTicketFile(tickets);
+
+            Ticket ticket3 = new Ticket("Andrew", "Andrfews", "6879", "andrew.andrews@cinco.com", "04454455", "Everyone calls me Andy but my name isn't Andy", "LOW","open", 2019,12-1,11);
+            tickets.add(ticket3;
+            cereal.writeTicketFile(tickets);
+
+            Ticket ticket4 = new Ticket("Walter", "Falls", "9872", "water.falls@cinco.com", "0445321212", "I was watering my plant and watered my laptop", "HIGH","open", 2019,11-1,11);
+            tickets.add(ticket4);
+            cereal.writeTicketFile(tickets);
+
+            Ticket ticket5 = new Ticket("Studo", "Wudo", "2212", "studo.wudo@cinco.com", "04456299", "My PC is full of ants. What is this? A PC for ants?", "MED","open", 2019,11-1,12);
+            tickets.add(ticket5);
+            cereal.writeTicketFile(tickets);
+
+            Ticket ticket6 = new Ticket("Wood", "Frankly", "1344", "wood.frankly@cinco.com", "04432433", "I would like a monitor arm that moves", "MED","open", 2019,11-1,12);
+            tickets.add(ticket6);
+            cereal.writeTicketFile(tickets);
+
+            Ticket ticket7 = new Ticket("Frank", "Woodenly", "4431", "Frank.Woodenly@cinco.com", "04458557", "Computer wont turn off", "LOW","open", 2019,11-1,12);
+            tickets.add(ticket7);
+            cereal.writeTicketFile(tickets);
+
+
         }
 
     }

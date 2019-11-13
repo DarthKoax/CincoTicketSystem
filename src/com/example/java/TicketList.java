@@ -71,6 +71,30 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return numTickets;
     }
 
+    public int getNumberAssignedTickets(String user) {
+        int numTickets = 0;
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getStatus().equalsIgnoreCase("OPEN") && t.getTechUserName().equalsIgnoreCase(user)) {
+                    numTickets++;
+                }
+            }
+        }
+        return numTickets;
+    }
+
+    public void getArchivedTicket()
+    {	
+    	System.out.println ("List of Archived Tickets\n=====================\n");
+    	for (Ticket t : tickets)
+    	{
+           if (t.status.equalsIgnoreCase("closed"))
+           {
+              System.out.println(t.archivedTickets());
+           }
+        }
+     }
+    
     public void getTicketsListLowAndMedium() {
         boolean first = true;
         for (Ticket t : tickets) {
@@ -99,11 +123,63 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
     }
 
+    public void getTicketsListTechnician(String technician) {
+        boolean first = true;
+        for (Ticket t : tickets) {
+            if (t.getTechUserName().equals(technician)) {
+                if (first) {
+                    System.out.println("List of Assigned Tickets\n=====================\n");
+                    first = false;
+                }
+
+                System.out.println(t.listTickets());
+            }
+        }
+    }
+
     public void getRequestedTicket(int num) {
 
         if (tickets != null && !tickets.isEmpty()) {
             for (Ticket t : tickets) {
                 if (t.getId() == num) {
+                    System.out.println(t);
+                }
+            }
+        }
+
+    }
+
+    public void getRequestedClosedTicket(int num) {
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num && t.getStatus().equalsIgnoreCase("closed")) {
+                    System.out.println(t);
+                }
+            }
+        }
+
+    }
+    
+    public boolean getRequestedTicket(int num, String user) {
+
+        boolean result = false;
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num && t.getTechUserName().equalsIgnoreCase(user)) {
+                    System.out.println(t);
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+    
+    public void getArchivedTicket(int num) {
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.status == "closed") {
                     System.out.println(t);
                 }
             }
@@ -119,6 +195,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
             for (Ticket t : tickets) {
                 if (t.getId() == num) {
                     t.setStatusClosed();
+                    t.techUserName = ("n/a");
                     outcome = true;
                 }
             }
