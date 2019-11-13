@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ef39323-6e0d-4ca5-9f0d-119b005965b8" name="Default Changelist" comment="">
+    <list default="true" id="6b96930a-5b4f-4cf4-9396-839e770f2a29" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/java/TechMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/TechMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/java/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CincoTicketSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CincoTicketSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TechnicianData.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketData.ser" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,22 +18,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1Sb3F2UnvXMsMgwhx9Ndm3JyQ6g" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1TYU9kaw8GkPKCNgy6fpt1Bof48" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -44,16 +46,6 @@
   <component name="RunManager">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java.Main" />
-      <module name="CincoTicketSystem" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,23 +81,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0ef39323-6e0d-4ca5-9f0d-119b005965b8" name="Default Changelist" comment="" />
-      <created>1571818360893</created>
+      <changelist id="6b96930a-5b4f-4cf4-9396-839e770f2a29" name="Default Changelist" comment="" />
+      <created>1573636372551</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571818360893</updated>
-      <workItem from="1571818364768" duration="6723000" />
+      <updated>1573636372551</updated>
+      <workItem from="1573636377616" duration="607000" />
+      <workItem from="1573637345635" duration="271000" />
     </task>
     <servers />
   </component>
@@ -117,7 +105,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
