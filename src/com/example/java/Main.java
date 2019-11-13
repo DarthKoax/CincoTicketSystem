@@ -17,6 +17,7 @@ public class Main {
         // when main starts, load list of technicians
         // Technician technician = new Technician();
         loadTechnicians();
+        seedTickets();
 
         SerializeList cereal = new SerializeList();
         TicketList tickets = cereal.readTicketFile();
@@ -24,7 +25,7 @@ public class Main {
         tickets.ClearOutOfDate();
         cereal.writeTicketFile(tickets);
 
-
+   
         /**
          * Will prompt user to enter information to create IT Issue ticket
          */
@@ -97,6 +98,25 @@ public class Main {
             technicians.add(louis);
             technicians.add(zayn);
             cereal.writeTechnicianFile(technicians);
+        }
+
+    }
+
+    public static void seedTickets() {
+        SerializeList cereal = new SerializeList();
+        TicketList tickets = cereal.readTicketFile();
+
+        if (tickets.size() == 0) {
+
+            //NOTE: Month field starts at 0
+            //IE November = 10 OR 11-1
+            Ticket ticket1 = new Ticket("Bob", "Brown", "5555", "bob.brown@cinco.com", "044555787", "No network connection", "HIGH","open", 2019,11-1,12);
+            tickets.add(ticket1);
+            cereal.writeTicketFile(tickets);  
+
+            Ticket ticket2 = new Ticket("Frank", "Buster", "6578", "Frank.Buster@cinco.com", "04457558", "Computer wont turn on", "LOW","open", 2019,9-1,12);
+            tickets.add(ticket2);
+            cereal.writeTicketFile(tickets);
         }
 
     }
