@@ -119,7 +119,7 @@ public class Main {
             cereal.writeTicketFile(tickets);
 
             Ticket ticket3 = new Ticket("Andrew", "Andrfews", "6879", "andrew.andrews@cinco.com", "04454455", "Everyone calls me Andy but my name isn't Andy", "LOW","open", 2019,12-1,11);
-            tickets.add(ticket3;
+            tickets.add(ticket3);
             cereal.writeTicketFile(tickets);
 
             Ticket ticket4 = new Ticket("Walter", "Falls", "9872", "water.falls@cinco.com", "0445321212", "I was watering my plant and watered my laptop", "HIGH","open", 2019,11-1,11);
