@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b96930a-5b4f-4cf4-9396-839e770f2a29" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CincoTicketSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CincoTicketSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TechnicianData.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicketData.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573636372551</updated>
       <workItem from="1573636377616" duration="607000" />
-      <workItem from="1573637345635" duration="271000" />
+      <workItem from="1573637345635" duration="555000" />
     </task>
     <servers />
   </component>
