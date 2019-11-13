@@ -22,29 +22,7 @@ public class Technician implements Serializable {
     }
 
 
-    // load the technicians when the main starts
-    // public void loadTechnicians() {
-
-    //     if (technicians.size() == 0 || technicians.equals(null)) {
-
-    //         Technician technician = new Technician();
-
-    //         Technician harry = new Technician("Harry", "Styles", "harry.styles", "1");
-    //         Technician niall = new Technician("Niall", "Horan", "niall.horan", "1");
-    //         Technician liam = new Technician("Liam", "Payne", "liam.payne", "1");
-    //         Technician louis = new Technician("Louis", "Tomlinsonand", "louis.tomlinsonand", "2");
-    //         Technician zayn = new Technician("Zayn", "Malik", "zayn.malik", "2");
-
-    //         technicians.add(harry);
-    //         technicians.add(niall);
-    //         technicians.add(liam);
-    //         technicians.add(louis);
-    //         technicians.add(zayn);
-
-    //         cereal.writeTechnicianFile(technicians);
-    //     }
-
-    // }
+    
     public String getFirstName() {
         return firstName;
     }
