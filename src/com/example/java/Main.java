@@ -14,8 +14,7 @@ public class Main {
         tests.testTicketClosed();
         // end of tests
 
-        // when main starts, load list of technicians
-        // Technician technician = new Technician();
+        // when main starts, load list of technicians and seedTickets (Development only, Not for production.)
         loadTechnicians();
         seedTickets();
 
@@ -114,6 +113,7 @@ public class Main {
             tickets.add(ticket1);
             cereal.writeTicketFile(tickets);  
 
+            //this ticket is out of date
             Ticket ticket2 = new Ticket("Frank", "Buster", "6578", "Frank.Buster@cinco.com", "04457558", "Computer wont turn on", "LOW","open", 2019,9-1,12);
             tickets.add(ticket2);
             cereal.writeTicketFile(tickets);
