@@ -289,8 +289,8 @@ public class TicketList implements Serializable, Iterable<Ticket> {
                 Calendar ticketToCheck = (Calendar) t.date.clone();
                 ticketToCheck.add(Calendar.DATE,daysToArchiveAfter);
                 if (currentDate.after(ticketToCheck)) {
-                    System.out.println("Closing old tickets");
-                    t.setStatusClosed();
+                    boolean closed = closeRequestedTicket(t.getId());
+                    if (closed) {System.out.println("Ticked expired.");};
                 } else {
                     System.out.println("Ticket is not 7 days old");
                 } // if
