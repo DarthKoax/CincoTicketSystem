@@ -137,6 +137,34 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         }
     }
 
+    public void ticketsPerTechnician(){
+        if (tickets != null && !tickets.isEmpty()) {
+            String harry = "HARRY STYLES:";
+            String nial = "NIALL HORAN:";
+            String liam = "LIAM PAYNE:";
+            String louis = "LOUIS TOMLINSON:";
+            String zayn = "ZAYN MALIK:";
+            for (Ticket t : tickets) {
+                if (t.getTechUserName().equalsIgnoreCase("harry.styles")) {
+                    harry = harry.concat(" "+ t.getId());
+                } else if (t.getTechUserName().equalsIgnoreCase("niall.horan")) {
+                    nial = nial.concat(" "+ t.getId());
+                } else if (t.getTechUserName().equalsIgnoreCase("liam.payne")) {
+                    liam = liam.concat(" "+ t.getId());
+                } else if (t.getTechUserName().equalsIgnoreCase("louis.tomlinson")) {
+                    louis = louis.concat(" "+ t.getId());
+                } else if (t.getTechUserName().equalsIgnoreCase("zayn.malik")) {
+                    zayn = zayn.concat(" "+ t.getId());
+                }
+            }
+            System.out.println(harry);
+            System.out.println(nial);
+            System.out.println(liam);
+            System.out.println(louis);
+            System.out.println(zayn);
+        }
+    }
+
     public void getRequestedTicket(int num) {
 
         if (tickets != null && !tickets.isEmpty()) {

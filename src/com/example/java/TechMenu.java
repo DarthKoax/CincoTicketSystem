@@ -50,7 +50,7 @@ public class TechMenu {
             System.out.println("You can only enter option '1', '2', '3'");
             level = scanner.nextLine();
 
-        } while (!level.equals("1") && !level.equals("2") && !level.equals("3"));
+        } while (!level.equals("1") && !level.equals("2") && !level.equals("3") && !level.equals("99"));
         return level;
     }
 
@@ -67,6 +67,10 @@ public class TechMenu {
         case "3":
         	System.out.println("Exit the system ");
             System.exit(0);
+            break;
+        case "99":
+            System.out.println("SUPER SECRET MENU ITEM: ");
+            whoHasWhat();
             break;
         default:
             System.out.println(loginOption);
@@ -92,8 +96,10 @@ public class TechMenu {
         int option = getLoginOption();
         if (option > 0) {
             if(tickets.getRequestedTicket(option,user.getUserName())){
-                changeSeverity(option);
-                changeStatus(option);    
+                if(changeSeverity(option)){}
+                else{
+                    changeStatus(option);    
+                }
             }
         }
     } 
@@ -152,6 +158,10 @@ public class TechMenu {
         }
     }
 
+    public void whoHasWhat(){
+        tickets.ticketsPerTechnician();
+    }
+
     public int getLoginOption() {
 
         int option = 0;
@@ -170,7 +180,7 @@ public class TechMenu {
         return option;
     }
 
-    public void changeSeverity(int ticketOption) {
+    public boolean changeSeverity(int ticketOption) {
         System.out.println("Do you want to change the severity of the ticket?");
         String option = getSubmit();
         if (option.equalsIgnoreCase("Y")) {
@@ -190,6 +200,7 @@ public class TechMenu {
                 System.out.println("Technical Username has been set.");
             } else {System.out.println("Technical Username has not been set.");}
         }
+        return true;
     }
 
     public void changeStatus(int ticketOption) {
