@@ -16,6 +16,7 @@ public class TechMenu {
     int numOpenTickets;
     String techUserName;
 
+    //Strings for Main Menu
     public static final String LINE1 = "-------------------------------------------------";
     public static final String LINE2 = "|          CINCO  TICKET ISSUING SYSTEM         |";
     public static final String LINE3 = "|                TECHNICIAN USER                |";
@@ -31,9 +32,11 @@ public class TechMenu {
     //public static final String LINE10 = "               LEVEL 2 SERVICE DESK TICKETS    ";
     public static final String LINE15 = "           ARCHIVED TICKETS                    ";    
 
+    //String Variables for menu choice and logged in Technician 
     public String loginOption;
     public String userNameTech;
 
+    //Print the main technician menu 
     public void printTechMenu(Technician currentUser) {
 
         while (true) {
@@ -44,6 +47,7 @@ public class TechMenu {
         }
     }
 
+    //get the user menu choice input
     public String getServiceDesk() {
         String level = null;
         do {
@@ -54,6 +58,7 @@ public class TechMenu {
         return level;
     }
 
+    //Launch the functions for each menu choice
     public void validateLogin(String loginOption, Technician tech) {
         switch (loginOption) {
         case "1":
@@ -69,6 +74,7 @@ public class TechMenu {
             System.exit(0);
             break;
         case "99":
+        //This menu item will display each technician and their assigned ticket IDs
             System.out.println("SUPER SECRET MENU ITEM: ");
             whoHasWhat();
             break;
@@ -78,6 +84,7 @@ public class TechMenu {
         }
     }
 
+    //Function to aid in building strings
     public String getSpaceLeft(Integer sl, Integer num) {
         int spaceLength = sl;
         int numL = String.valueOf(num).length();
@@ -86,6 +93,13 @@ public class TechMenu {
         return spaceCalc;
     }
 
+    //Menu Item calls this function to run through displaying and changing tickets assigned to 
+    //  the current technician.
+    //This function calls a TicketList function which prints out each ticket (in a condensed form) 
+    //  with the ID that matches the current technician
+    //The technician can select a ticket to view in detail.
+    //The Technician has the choice to change the severity of this ticket or close the ticket 
+    //  or do neither.
     public void assignedTickets(Technician user) {
 
         String LINE13;
@@ -104,6 +118,7 @@ public class TechMenu {
         }
     } 
     
+    //Superceded menu options to print out level 1 or level 2 tickets
     /**
     public void level1Login(Technician user) {
 
@@ -144,6 +159,8 @@ public class TechMenu {
     }
     **/
 
+    //Function to display all closed tickets in a condensed format
+    //Using a TicketList function, the technician can enter a ticketId to view that ticket in detail.
     public void displayArchivedTickets(Technician user)
     {
         String LINE13 = "               " + user.firstName + " " + user.lastName;
@@ -153,15 +170,16 @@ public class TechMenu {
         int option = getLoginOption();
         if (option > 0) {
             tickets.getRequestedClosedTicket(option);
-            //changeSeverity(option);
-            //changeStatus(option);
         }
     }
 
+    //This function is used in the secret menu item to call TicketList function that prints out 
+    //  each technician's name along with each ticketId assigned to them
     public void whoHasWhat(){
         tickets.ticketsPerTechnician();
     }
 
+    //This function gets the user input for selecting a ticket by ticketId
     public int getLoginOption() {
 
         int option = 0;
@@ -180,6 +198,9 @@ public class TechMenu {
         return option;
     }
 
+    //This function is called after viewing an assigned ticket in detail.
+    //The technician can choose to change the severity of a ticket, in which case the ticket is 
+    //  reassigned to a technician of the correct level.
     public boolean changeSeverity(int ticketOption) {
         System.out.println("Do you want to change the severity of the ticket?");
         String option = getSubmit();
@@ -217,6 +238,9 @@ public class TechMenu {
  
     }
 
+    //This function is called after a technician chooses not to change the severity of a ticket.
+    //This function asks the technician if they would like to close the ticket 
+    //  If so, a TicketList function is called which sets the ticket status to closed.  
     public void changeStatus(int ticketOption) {
         System.out.println("Do you want to set the status of this ticket to closed?");
         String option = getSubmit();
