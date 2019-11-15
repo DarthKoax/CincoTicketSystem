@@ -336,7 +336,7 @@ public class TicketList implements Serializable, Iterable<Ticket> {
                     boolean closed = closeRequestedTicket(t.getId());
                     if (closed) {System.out.println("Ticked expired.");};
                 } else {
-                    System.out.println("Ticket is not 7 days old");
+                   // System.out.println("Ticket is not 7 days old");
                 } // if
             }//if
             
