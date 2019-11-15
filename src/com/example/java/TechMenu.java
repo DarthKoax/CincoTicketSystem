@@ -195,13 +195,26 @@ public class TechMenu {
             if (tickets.setTicketSeverity(ticketOption, severity)){
                 cereal.writeTicketFile(tickets);
                 System.out.println("Severity has been set.");
+                //if Severity has been set, then set a new technician
+                //but first set this ticket's techUserName to blank so it is not included in the count
+                if (tickets.setTechUserNameBlank(ticketOption)){
+                    cereal.writeTicketFile(tickets);
+                    //System.out.println("Technician removed from ticket.");
+                } //else {System.out.println("Technician not excluded from count");}
+                if (tickets.setTechUserName(ticketOption)) {
+                    cereal.writeTicketFile(tickets);
+                    System.out.println("Technical Username has been set.");
+                } else {System.out.println("Technical Username has not been set.");}
             } else {System.out.println("Severity has not been set.");}
+
             if (tickets.setTechUserName(ticketOption)) {
                 cereal.writeTicketFile(tickets);
                 System.out.println("Technical Username has been set.");
             } else {System.out.println("Technical Username has not been set.");}
-        }
-        return opt;
+   
+           }
+        return true;
+ 
     }
 
     public void changeStatus(int ticketOption) {

@@ -307,6 +307,22 @@ public class TicketList implements Serializable, Iterable<Ticket> {
 
         return outcome;
     }
+
+    public boolean setTechUserNameBlank(int num) {
+        boolean outcome = false;
+
+        if (tickets != null && !tickets.isEmpty()) {
+            for (Ticket t : tickets) {
+                if (t.getId() == num) {
+                    String technameReturn = "";
+                    t.setTechUserName(technameReturn);
+                    outcome = true;
+                }
+            }
+        }
+
+        return outcome;
+    }
     
     public void ClearOutOfDate() {
         int daysToArchiveAfter = 7;
