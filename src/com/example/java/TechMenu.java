@@ -183,8 +183,9 @@ public class TechMenu {
     public boolean changeSeverity(int ticketOption) {
         System.out.println("Do you want to change the severity of the ticket?");
         String option = getSubmit();
+        boolean opt = false;
         if (option.equalsIgnoreCase("Y")) {
-            
+            opt = true;
             String severity = null;
             do {
                 System.out.println("Enter 'L' for LOW,  'M' for MEDIUM OR 'H' for HIGH");
@@ -200,7 +201,7 @@ public class TechMenu {
                 System.out.println("Technical Username has been set.");
             } else {System.out.println("Technical Username has not been set.");}
         }
-        return true;
+        return opt;
     }
 
     public void changeStatus(int ticketOption) {
