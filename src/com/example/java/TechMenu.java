@@ -234,7 +234,7 @@ public class TechMenu {
             } else {System.out.println("Technical Username has not been set.");}
    
            }
-        return true;
+        return opt;
  
     }
 
