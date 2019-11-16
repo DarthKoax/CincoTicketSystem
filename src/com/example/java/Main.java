@@ -109,32 +109,32 @@ public class Main {
 
             //NOTE: Month field starts at 0
             //IE November = 10 OR 11-1
-            Ticket ticket1 = new Ticket("Bob", "Brown", "5555", "bob.brown@cinco.com", "044555787", "No network connection", "HIGH","open", 2019,11-1,12);
+            Ticket ticket1 = new Ticket("Bob", "Brown", "5555", "bob.brown@cinco.com", "044555787", "No network connection", "HIGH","open", 2019,11-1,16);
             tickets.add(ticket1);
             cereal.writeTicketFile(tickets);  
 
             //this ticket is out of date
-            Ticket ticket2 = new Ticket("Frank", "Buster", "6578", "Frank.Buster@cinco.com", "04457558", "Computer wont turn on", "LOW","open", 2019,9-1,12);
+            Ticket ticket2 = new Ticket("Frank", "Buster", "6578", "Frank.Buster@cinco.com", "04457558", "Computer wont turn on", "LOW","open", 2019,11-1,16);
             tickets.add(ticket2);
             cereal.writeTicketFile(tickets);
 
-            Ticket ticket3 = new Ticket("Andrew", "Andrfews", "6879", "andrew.andrews@cinco.com", "04454455", "Everyone calls me Andy but my name isn't Andy", "LOW","open", 2019,12-1,11);
+            Ticket ticket3 = new Ticket("Andrew", "Andrfews", "6879", "andrew.andrews@cinco.com", "04454455", "Everyone calls me Andy but my name isn't Andy", "LOW","open", 2019,11-1,16);
             tickets.add(ticket3);
             cereal.writeTicketFile(tickets);
 
-            Ticket ticket4 = new Ticket("Walter", "Falls", "9872", "water.falls@cinco.com", "0445321212", "I was watering my plant and watered my laptop", "HIGH","open", 2019,11-1,11);
+            Ticket ticket4 = new Ticket("Walter", "Falls", "9872", "water.falls@cinco.com", "0445321212", "I was watering my plant and watered my laptop", "HIGH","open", 2019,11-1,16);
             tickets.add(ticket4);
             cereal.writeTicketFile(tickets);
 
-            Ticket ticket5 = new Ticket("Studo", "Wudo", "2212", "studo.wudo@cinco.com", "04456299", "My PC is full of ants. What is this? A PC for ants?", "MED","open", 2019,11-1,12);
+            Ticket ticket5 = new Ticket("Studo", "Wudo", "2212", "studo.wudo@cinco.com", "04456299", "My PC is full of ants. What is this? A PC for ants?", "MED","open", 2019,11-1,16);
             tickets.add(ticket5);
             cereal.writeTicketFile(tickets);
 
-            Ticket ticket6 = new Ticket("Wood", "Frankly", "1344", "wood.frankly@cinco.com", "04432433", "I would like a monitor arm that moves", "MED","open", 2019,11-1,12);
+            Ticket ticket6 = new Ticket("Wood", "Frankly", "1344", "wood.frankly@cinco.com", "04432433", "I would like a monitor arm that moves", "MED","open", 2019,11-1,16);
             tickets.add(ticket6);
             cereal.writeTicketFile(tickets);
 
-            Ticket ticket7 = new Ticket("Frank", "Woodenly", "4431", "Frank.Woodenly@cinco.com", "04458557", "Computer wont turn off", "LOW","open", 2019,11-1,12);
+            Ticket ticket7 = new Ticket("Frank", "Woodenly", "4431", "Frank.Woodenly@cinco.com", "04458557", "Computer wont turn off", "LOW","open", 2019,11-1,16);
             tickets.add(ticket7);
             cereal.writeTicketFile(tickets);
 
