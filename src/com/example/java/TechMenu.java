@@ -54,8 +54,9 @@ public class TechMenu {
             System.out.println("You can only enter option '1', '2', '3'");
             level = scanner.nextLine();
 
-        } while (!level.equals("1") && !level.equals("2") && !level.equals("3") && !level.equals("99"));
-        return level;
+        //} while (!level.equals("1") && !level.equals("2") && !level.equals("3") && !level.equals("99"));
+        } while (!level.equals("1") && !level.equals("2") && !level.equals("3"));
+    return level;
     }
 
     //Launch the functions for each menu choice
@@ -73,11 +74,13 @@ public class TechMenu {
         	System.out.println("Exit the system ");
             System.exit(0);
             break;
+       /** 
         case "99":
         //This menu item will display each technician and their assigned ticket IDs
             System.out.println("SUPER SECRET MENU ITEM: ");
             whoHasWhat();
             break;
+        */
         default:
             System.out.println(loginOption);
             System.out.println("Something went very wrong");
@@ -175,6 +178,7 @@ public class TechMenu {
 
     //This function is used in the secret menu item to call TicketList function that prints out 
     //  each technician's name along with each ticketId assigned to them
+    //This function is disabled in the release
     public void whoHasWhat(){
         tickets.ticketsPerTechnician();
     }
