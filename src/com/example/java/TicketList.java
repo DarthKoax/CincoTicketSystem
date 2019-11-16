@@ -8,7 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.text.ParseException;
 
-
+//This class holds ticket items and manages requests to edit tickets
+//  and read and write ticket files
 public class TicketList implements Serializable, Iterable<Ticket> {
 
     private static final long serialVersionUID = 1L;
@@ -308,6 +309,8 @@ public class TicketList implements Serializable, Iterable<Ticket> {
         return outcome;
     }
 
+    //This function sets a tickets assigned technician to blank so it is not counted
+    //   when assigning tickets
     public boolean setTechUserNameBlank(int num) {
         boolean outcome = false;
 
